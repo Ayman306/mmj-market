@@ -1,0 +1,8 @@
+nav{
+  display: flex;
+  justify-content: center;
+  padding: 5px;
+  .logo{
+    width: clamp(100px,10vw,200px);
+  }
+}
