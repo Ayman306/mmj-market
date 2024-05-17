@@ -1,0 +1,17 @@
+
+.carousel{
+  // height: 500px;
+  border-radius: 10px;
+  .carousel-item{
+    img{
+      border-radius: 10px;
+      object-fit: cover;
+
+    }
+  }
+}
+@media (min-width:768px) {
+  .carousel{
+    height: 400px;
+  }
+}

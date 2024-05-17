@@ -1,7 +1,42 @@
 /* You can add global styles to this file, and also import other style files */
 @import './assets/fonts/fonts.scss';
-@import './assets/custom/_custom';
+@import './assets/custom/__variable';
+
+
 body{
   font-family: "Roboto", sans-serif;
+}
+p{
+  color: $light-black;
+}
 
+::-webkit-scrollbar {
+  width: 3px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px rgba(203, 203, 203, 0.711);
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: $primary-green;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: $primary-orange;
+}
+
+.event{
+  // display: grid;
+  // grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: clamp(20px,10vw,30px);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Center content horizontally */
+  align-items: center; /* Center content vertically if there's a height */
 }

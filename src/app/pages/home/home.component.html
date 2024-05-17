@@ -1,0 +1,96 @@
+<div class="container-fluid">
+  <app-slider [sliderItem]="carouselImages"></app-slider>
+
+  <div class="container-fluid m-2">
+    <div class="category d-flex flex-row flex-wrap justify-content-center">
+      @for (item of categories; track $index) {
+      <div class="main flex-column justify-content-center" (click)="navigateTo('category',item.id)">
+        <div class="logo d-block">
+          <img [src]="item.logo" alt="" srcset="" class="w-100" />
+        </div>
+        <p class="text-center m-0 sub-title fw-bold">{{ item.name }}</p>
+      </div>
+      } @empty {
+      <p>No categories available</p>
+      }
+    </div>
+  </div>
+  <div class="container-fluid mt-4">
+    <div class="event">
+      @for (item of banner; track $index) {
+      <app-servicecard [item]="item"></app-servicecard>
+      }
+    </div>
+
+  </div>
+  <app-slider [sliderItem]="carouselImages" class="mt-4"></app-slider>
+  <div class="container-fluid">
+    <div class="enquir">
+      <form [formGroup]="enquiryForm" (ngSubmit)="onSubmit()">
+        <div>
+          <label for="name"class="form-label">Name:</label>
+          <input id="name" formControlName="name" class="form-control" type="text">
+
+            @if (f['name'].touched && f['name'].invalid) {
+            @if (f['name'].errors?.['required']) {
+              <small class="form-text">Name is required.</small>
+            }
+            @if (f['name'].errors?.['minlength']) {
+
+            <small class="form-text">Name must be at least 3 characters long.</small>
+            }
+          }
+        </div>
+
+        <div>
+          <label for="phone" class="form-label">Phone Number:</label>
+          <input id="phone" formControlName="phone" class="form-control" type="tel">
+
+            @if (f['phone'].touched && f['phone'].invalid) {
+              @if (f['phone'].errors?.['required']) {
+                <small class="form-text" >Phone number is required.</small>
+              }
+              @if (f['phone'].errors?.['pattern']) {
+            <small class="form-text" >Phone number must be 10 digits.</small>
+              }
+            }
+
+        </div>
+
+        <div>
+          <label for="email" class="form-label">Email:</label>
+          <input id="email" formControlName="email" class="form-control" type="email">
+            @if (f['email'].touched && f['email'].invalid) {
+              @if (f['email'].errors?.['email']) {
+            <small class="form-text">Invalid email address.</small>
+              }
+            }
+        </div>
+
+        <div>
+          <label for="businessName" class="form-label">Business Name (Optional):</label>
+          <input id="businessName" formControlName="businessName" class="form-control" type="text">
+        </div>
+
+        <div>
+          <label for="message" class="form-label">Message:</label>
+          <textarea id="message" formControlName="message" class="form-control"></textarea>
+            @if (f['message'].touched && f['message'].invalid) {
+              @if (f['message'].errors?.['required']) {
+                <small  class="form-text">Message is required.</small>
+              }
+              @if (f['message'].errors?.['minlength']) {
+                <small class="form-text">Message must be at least 10 characters long.</small>
+              }
+            }
+        </div>
+
+        <button type="submit" class="btn">Submit</button>
+      </form>
+
+    </div>
+  </div>
+  <footer>
+    <p class="text-center">&copy;Mangalore Meri Jaan | 2024</p>
+  </footer>
+</div>

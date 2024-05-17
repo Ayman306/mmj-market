@@ -1,0 +1,113 @@
+.event_main{
+  flex: 1 1 auto; /* Allow items to grow and shrink */
+  margin: 10px; /* Optional: add spacing between items */
+  min-width: 150px; /* Optional: minimum width for items */
+  max-width: 300px;
+
+  box-shadow:0.5px 0.5px 7px #0000001f;
+  // padding: 5px;
+  transition: 0.3s all ease-in-out;
+  border-radius: 5px;
+  .user{
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    margin-top: 10px;
+    &_img{
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      overflow: hidden;
+      img{
+        object-fit: cover;
+        object-position: center;
+      }
+    }
+    &_name{
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      place-self: center;
+      h3{
+        font-size: 14px;
+        font-weight: 600;
+        margin: 0;
+        padding: 0;
+        text-align: left;
+      }
+      p{
+        font-size: 12px;
+        margin: 0;
+        padding: 0;
+        text-align: left;
+        color: #9b9b9b;
+      }
+    }
+  }
+  .content{
+    display: grid;
+  grid-template-columns: 1fr;
+  transition: transform 0.3s ease-in-out;
+
+  .image{
+    // padding: 5px;
+    height: inherit;
+    display: inline-block;
+
+    img{
+      object-fit: contain;
+      object-position: center;
+
+    }
+  }
+  .desc{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    text-align: left;
+    padding: 10px;
+    p{
+      font-size: 12px;
+      margin: 0;
+      padding: 0;
+      text-align: left;
+      color: #9b9b9b;
+    }
+    button{
+      width: 100px;
+      height: 30px;
+      border-radius: 5px;
+      border: none;
+      background-color: #000000;
+      color: #fff;
+      font-size: 12px;
+      font-weight: 600;
+      margin-left: auto;
+      margin-top: 10px;
+      cursor: pointer;
+      transition: 0.3s all ease-in-out;
+      &:hover{
+        background-color: #00000080;
+
+      }
+    }
+  }
+}
+&:hover{
+  box-shadow:0.5px 0.5px 3px #00000065;
+  transform: scale(1.05);
+
+}
+@media (max-width:920px) {
+  &{
+    height: auto;
+    .content{
+      grid-template-columns: 1fr;
+      height: auto;
+    }
+
+
+  }
+}
+
+}

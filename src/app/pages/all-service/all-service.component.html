@@ -1,0 +1,8 @@
+<div class="container-fluid mt-4">
+  <div class="event">
+    @for (item of banner; track $index) {
+    <app-servicecard [item]="item"></app-servicecard>
+    }
+  </div>
+
+</div>

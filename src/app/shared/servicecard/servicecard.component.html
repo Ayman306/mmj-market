@@ -1,0 +1,27 @@
+<div class="event_main" (click)="navigateTo(item.id)">
+  <div class="user">
+    <div class="user_img">
+      <img
+        [src]="item.userImage"
+        alt=""
+        class="w-100"
+      />
+    </div>
+    <div class="user_name">
+      <h3>{{ item.username }}</h3>
+      <p class="sub-title d-flex align-center">
+        <i class="bi bi-geo-alt-fill"></i> &nbsp;{{ item.location }}
+      </p>
+    </div>
+  </div>
+
+  <div class="content">
+    <div class="image">
+      <img [src]="item.image" alt="" srcset="" class="w-100 h-100" />
+    </div>
+    <div class="desc">
+      <p> <span class="fw-bold">{{item.username}}&nbsp; </span> {{ item.desc }}</p>
+      <button class="btn">{{ item.button }}</button>
+    </div>
+  </div>
+</div>
