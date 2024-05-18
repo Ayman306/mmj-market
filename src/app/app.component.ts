@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
-import { Router, RouterOutlet } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
+import { filter } from 'rxjs/operators';
+import { WindowService } from './shared/service/window.service';
 
 @Component({
   selector: 'app-root',
@@ -8,12 +10,22 @@ import { Router, RouterOutlet } from '@angular/router';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   title = 'mmj-market';
-  constructor(private route:Router) {}
+  constructor(private route:Router,    private windowService: WindowService
+    ) {}
+  ngOnInit(): void {
+    this.route.events
+    .pipe(filter(event => event instanceof NavigationEnd))
+    .subscribe(() => {
+      const windowRef = this.windowService.nativeWindow;
+      if (windowRef) {
+        windowRef.scrollTo(0, 0);
+      }
+    });
+}
+
   navigateTo(){
-
     this.route.navigate(['/home'])
-
 }
 }
