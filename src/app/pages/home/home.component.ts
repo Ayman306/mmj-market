@@ -3,38 +3,18 @@ import { SliderComponent } from '../../shared/slider/slider.component';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ServicecardComponent } from '../../shared/servicecard/servicecard.component';
 import {  Router } from '@angular/router';
+import { EnquiryFormComponent } from '../../shared/enquiry-form/enquiry-form.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [SliderComponent,ReactiveFormsModule,ServicecardComponent],
+  imports: [SliderComponent,ServicecardComponent,EnquiryFormComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
 export class HomeComponent {
-  enquiryForm: FormGroup;
 
-  constructor(private fb: FormBuilder,private route:Router) {
-    this.enquiryForm = this.fb.group({
-          name: ['', [Validators.required, Validators.minLength(3)]],
-          phone: ['', [Validators.required, Validators.pattern(/^\d{10}$/)]],
-          email: ['', [ Validators.email]],
-          businessName: [''],
-          message: ['', [Validators.required, Validators.minLength(10)]]
-        });
-  }
-
- get f() {
-    return this.enquiryForm.controls;
-  }
-
-  onSubmit() {
-    if (this.enquiryForm.valid) {
-      console.log(this.enquiryForm.value);
-    } else {
-      console.log('Form is invalid');
-    }
-  }
+ constructor(private route:Router){}
 
 categories=[
   {

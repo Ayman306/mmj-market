@@ -1,1 +1,92 @@
-<p>single-service works!</p>
+<div class=" single_service_main">
+  <div class="container">
+  <div class="banner">
+    <app-slider [sliderItem]="categorySlider"></app-slider>
+  </div>
+  <div class="business">
+    <div class="logo">
+      <img src="../../../assets/mmj_logo.png" alt="" srcset="" class="w-100">
+    </div>
+    <div class="business_head card-setup">
+
+
+      <div class="title">
+        <h2>Mangalore meri jaaan</h2>
+        <p class="sub-title">Digital Marketting and Social Engineering</p>
+        <a href="http://google.com" target="_blank" rel="noopener noreferrer">PersonalWebsite.com</a>
+        <!-- <button class="btn">Get in touch</button> -->
+      </div>
+    </div>
+
+    <div class="business_service card-setup">
+      @for (item of businessImage; track $index) {
+      <div class="business_service_main">
+
+      <div class="icon">
+        <img src="../../../assets/icons/icons8-restaurant-50.png" alt="icon" srcset="" class="w-100 h-100">
+      </div>
+      <div class="sub">
+        <p>Functions</p>
+      </div>
+    </div>
+  }
+    </div>
+
+    <div class="business_body card-setup">
+      <h2>About</h2>
+      <p>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Expedita, sequi consequatur. Repellendus laboriosam modi fugit accusantium? Ipsa vero fugiat ullam minima, atque nam natus aperiam ab id dolorem fugit architecto!
+      </p>
+
+      <div class="body_card">
+        <div>
+
+          <p class="label">
+            Contact info
+          </p>
+          <p class="detail">
+            <a href="mailto:mmj@mangalore.com">mangalore merijaan</a> <br>
+            <a href="tel:+91-9988987878">+91-9988987878</a>
+          </p>
+        </div>
+        <div>
+          <p>
+            Ajanta Buinisess center,
+          </p>
+          <p>Bejai, Mangalore</p>
+          <p>pincode: 575001</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="business_image card-setup carousel slide" data-bs-ride="carousel" data-bs-touch="true">
+      <h2>Posts</h2>
+      <div class=" carousel-inner" >
+        <div class=" ">
+        @for (slide of slides; track $index) {
+        <div class="gallery carousel-item" [class.active]="$index === 0">
+
+        @for (item of slide; track $index) {
+        <figure class=" gallery__item">
+          <img [src]="item.src" alt="" srcset="" class="w-100 gallery__image">
+        </figure>
+      }
+    </div>
+  }
+</div>
+      </div>
+    </div>
+    <div class="business_geo card-setup">
+      <h2>Easy Navigate</h2>
+    </div>
+    <div class="business_enquiry card-setup mb-5">
+      <h2>Get connected with MMJ</h2>
+      <app-enquiry-form> </app-enquiry-form>
+    </div>
+  </div>
+</div>
+<div class="card-setup">
+  <p class="text-center">&copy;Mangalore Meri Jaan | 2024</p>
+
+</div>
+</div>

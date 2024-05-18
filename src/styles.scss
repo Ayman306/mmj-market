@@ -2,12 +2,17 @@
 @import './assets/fonts/fonts.scss';
 @import './assets/custom/__variable';
 
-
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 body{
   font-family: "Roboto", sans-serif;
 }
 p{
   color: $light-black;
+  margin: 0;
 }
 
 ::-webkit-scrollbar {
