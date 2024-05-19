@@ -1,11 +1,11 @@
-import { TitleCasePipe } from '@angular/common';
+import { NgOptimizedImage, TitleCasePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Lightbox, LightboxConfig, LightboxModule } from 'ngx-lightbox';
 
 @Component({
   selector: 'app-details-tab',
   standalone: true,
-  imports: [TitleCasePipe,LightboxModule],
+  imports: [TitleCasePipe,LightboxModule,NgOptimizedImage],
   templateUrl: './details-tab.component.html',
   styleUrl: './details-tab.component.scss'
 })
@@ -16,6 +16,9 @@ export class DetailsTabComponent implements OnInit{
     this._lightboxConfig.centerVertically=true
     this._lightboxConfig.fitImageInViewPort=true
     this._lightboxConfig.showDownloadButton=true
+    this._lightboxConfig.wrapAround=true
+    this._lightboxConfig.alwaysShowNavOnTouchDevices=true
+
 
   }
   ngOnInit(): void {
