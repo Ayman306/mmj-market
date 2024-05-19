@@ -4,11 +4,12 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { ServicecardComponent } from '../../shared/servicecard/servicecard.component';
 import {  Router } from '@angular/router';
 import { EnquiryFormComponent } from '../../shared/enquiry-form/enquiry-form.component';
+import { FooterComponent } from '../../shared/footer/footer.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [SliderComponent,ServicecardComponent,EnquiryFormComponent],
+  imports: [SliderComponent,ServicecardComponent,EnquiryFormComponent,FooterComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
