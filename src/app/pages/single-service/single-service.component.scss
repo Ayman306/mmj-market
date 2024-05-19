@@ -2,6 +2,19 @@
 .single_service_main{
   background-color: $secondaary-bg-black;
   .container{
+    a{
+      color: $primary-green;
+      font-weight: bold;
+      text-decoration: dotted;
+      transition: 0.4s all ease-in-out;
+      &:hover{
+        text-decoration: underline;
+      }
+    }
+    .banner{
+      height: 200px;
+      overflow: hidden;
+    }
   .business{
     position: relative;
     display: grid;
@@ -26,19 +39,51 @@
       object-position: center;
      }
     }
+    .logo.noBanner{
+      top: 15px;
+    }
     &_head{
 
       border-top-left-radius: 0px;
       border-top-right-radius: 0px;
       padding-top: 80px;
       .title{
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 8px;
         h2{
           text-transform: capitalize;
+          margin:0;
         }
         p{
           font-size: 14px;
         }
       }
+      .body_card{
+        width: 100%;
+        // margin-top: 10px;
+
+
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        // justify-content: center;
+        gap: 20px;
+        .body_card_wrapper{
+           box-shadow: 0.2px 0.2px 0.2px 0.5px  $primary-yellow;
+        border-radius: 10px;
+          padding: 20px;
+          display: grid;
+          grid-template-columns: 1fr;
+          grid-gap:3px
+        }
+
+      }
+      .label{
+        font-size: 14px;
+      }
+    }
+    &_head.noBanner{
+      padding-top: 8rem;
     }
     &_service{
       flex-wrap: nowrap;
@@ -71,27 +116,6 @@
             text-align: center;
           }
         }
-      }
-    }
-    &_body{
-      .body_card{
-        width: 100%;
-        margin-top: 30px;
-
-
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        // justify-content: center;
-        gap: 20px;
-        div{
-           box-shadow: 0.2px 0.2px 0.2px 0.5px  $primary-yellow;
-        border-radius: 10px;
-          padding: 20px;
-        }
-
-      }
-      .label{
-        font-size: 14px;
       }
     }
     &_image{
@@ -132,6 +156,19 @@
      }
      &_head{
       padding-top: 50px;
+      p{
+        font-size: 12px !important;
+      }
+      a{
+        font-size: 12px !important;
+      }
+      .body_card{
+        gap: 5px;
+        grid-template-columns: 1fr;
+        div{
+          padding: 9px;
+        }
+      }
      }
      &_body{
       .body_card{

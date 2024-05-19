@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { SliderComponent } from '../../shared/slider/slider.component';
 import { EnquiryFormComponent } from '../../shared/enquiry-form/enquiry-form.component';
+import { FooterComponent } from '../../shared/footer/footer.component';
+import { DetailsTabComponent } from '../../shared/details-tab/details-tab.component';
 
 @Component({
   selector: 'app-single-service',
   standalone: true,
-  imports: [SliderComponent,EnquiryFormComponent],
+  imports: [SliderComponent,EnquiryFormComponent,FooterComponent,DetailsTabComponent],
   templateUrl: './single-service.component.html',
   styleUrl: './single-service.component.scss'
 })

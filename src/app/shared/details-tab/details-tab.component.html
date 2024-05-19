@@ -1,0 +1,53 @@
+<div class=" details-tab">
+
+  <ul class="nav nav-tabs justify-content-center">
+    @for (tab of tabs; track $index) {
+  <li class="nav-item">
+    <!-- <a class="nav-link active" aria-current="page">  -->
+      <a class="nav-link" [class.active]="active === tab" (click)="active=tab">
+        {{ tab | titlecase }}
+      </a>
+  </li>
+}
+
+</ul>
+</div>
+<div class="details">
+  @switch (active) {
+  @case('Overview'){
+    'Overview'
+  }
+  @case ('Menu'){
+    <div class="details_gallery">
+      @for (album of albums; track $index) {
+      <div class="gallery__item" (click)="open($index)">
+        <img [src]="album.src" alt="" class="gallery__image w-100">
+      </div>
+    }
+    </div>
+  }
+  @case ('Reviews'){
+    'Reviews'
+  }
+
+  @case ('Photos'){
+    <div class="details_gallery">
+      @for (album of albums; track $index) {
+      <div class="gallery__item" (click)="open($index)">
+        <img [src]="album.src" alt="" class="gallery__image w-100">
+      </div>
+    }
+    </div>
+  }
+
+  @case ('About'){
+
+    'About'
+  }
+
+  @default{
+
+    'defaut'
+  }
+  }
+</div>
