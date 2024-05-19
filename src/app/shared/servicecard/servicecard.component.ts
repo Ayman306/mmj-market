@@ -1,10 +1,11 @@
+import { NgOptimizedImage } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-servicecard',
   standalone: true,
-  imports: [],
+  imports: [NgOptimizedImage],
   templateUrl: './servicecard.component.html',
   styleUrl: './servicecard.component.scss'
 })

@@ -21,7 +21,7 @@
     <div class="details_gallery">
       @for (album of albums; track $index) {
       <div class="gallery__item" (click)="open($index)">
-        <img [src]="album.src" alt="" class="gallery__image w-100">
+        <img [ngSrc]="album.src" alt="" class="gallery__image w-100 h-100" width="200" height="200">
       </div>
     }
     </div>
@@ -34,7 +34,7 @@
     <div class="details_gallery">
       @for (album of albums; track $index) {
       <div class="gallery__item" (click)="open($index)">
-        <img [src]="album.src" alt="" class="gallery__image w-100">
+        <img [ngSrc]="album.src" alt="" class="gallery__image w-100 h-100" width="200" height="200">
       </div>
     }
     </div>

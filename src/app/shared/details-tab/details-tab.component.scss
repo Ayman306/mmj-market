@@ -11,6 +11,18 @@
     gap: 20px;
     li{
       cursor: pointer;
+      a{
+        padding: 20px;
+        font-weight: bold;
+        color: $description-black;
+      }
+      a.active{
+        color: $primary-green;
+      }
+      a:hover{
+        color: $primary-green;
+        text-decoration: underline;
+      }
     }
   }
   &::-webkit-scrollbar {

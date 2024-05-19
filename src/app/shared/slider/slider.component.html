@@ -16,7 +16,7 @@
     <div
       class="carousel-item"
       [class.active]="$index === 0">
-      <img [src]="image.src" class="d-block w-100" [alt]="image.alt">
+      <img [ngSrc]="image.src" class="d-block w-100 h-100" [alt]="image.alt" width="100" height="100">
     </div>
   }
   </div>

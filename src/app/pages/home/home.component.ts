@@ -5,11 +5,12 @@ import { ServicecardComponent } from '../../shared/servicecard/servicecard.compo
 import {  Router } from '@angular/router';
 import { EnquiryFormComponent } from '../../shared/enquiry-form/enquiry-form.component';
 import { FooterComponent } from '../../shared/footer/footer.component';
+import { NgOptimizedImage } from '@angular/common';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [SliderComponent,ServicecardComponent,EnquiryFormComponent,FooterComponent],
+  imports: [SliderComponent,ServicecardComponent,EnquiryFormComponent,FooterComponent,NgOptimizedImage],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })

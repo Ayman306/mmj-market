@@ -1,3 +1,4 @@
+import { NgOptimizedImage } from '@angular/common';
 import { Component, Input } from '@angular/core';
 
 
@@ -5,7 +6,7 @@ import { Component, Input } from '@angular/core';
 @Component({
   selector: 'app-slider',
   standalone: true,
-  imports: [],
+  imports: [NgOptimizedImage],
   templateUrl: './slider.component.html',
   styleUrl: './slider.component.scss'
 })

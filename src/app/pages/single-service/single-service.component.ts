@@ -3,11 +3,12 @@ import { SliderComponent } from '../../shared/slider/slider.component';
 import { EnquiryFormComponent } from '../../shared/enquiry-form/enquiry-form.component';
 import { FooterComponent } from '../../shared/footer/footer.component';
 import { DetailsTabComponent } from '../../shared/details-tab/details-tab.component';
+import { NgOptimizedImage } from '@angular/common';
 
 @Component({
   selector: 'app-single-service',
   standalone: true,
-  imports: [SliderComponent,EnquiryFormComponent,FooterComponent,DetailsTabComponent],
+  imports: [SliderComponent,EnquiryFormComponent,FooterComponent,DetailsTabComponent,NgOptimizedImage],
   templateUrl: './single-service.component.html',
   styleUrl: './single-service.component.scss'
 })
