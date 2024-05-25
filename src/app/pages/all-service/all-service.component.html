@@ -1,8 +1,33 @@
-<div class="container-fluid mt-4">
+<div class="container mt-4">
+  <div class="all-service">
+    <h2 class="head">{{type | titlecase}}</h2>
   <div class="event">
-    @for (item of banner; track $index) {
-    <app-servicecard [item]="item"></app-servicecard>
+
+    @switch (type) {
+      @case('Restraunt'){
+      @for (item of banner; track $index) {
+        <app-servicecard [item]="item"></app-servicecard>
+      }
+  }
+
+  @case('jobs'){
+    <div class="job">
+      @for (item of banner; track $index) {
+      <div class="job_main"  (click)="navigateTo($index)">
+        <div class="job_img">
+          <img [src]="item.image" alt="" srcset="">
+        </div>
+        <div class="content">
+          <p class="title">{{ item.username }}</p>
+          <p>{{ item.desc }}</p>
+          <button class="btn" (click)="navigateTo($index)">{{ item.button }}</button>
+        </div>
+      </div>
     }
+    </div>
+  }
+  }
+  </div>
   </div>
 
 </div>

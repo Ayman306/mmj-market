@@ -12,20 +12,27 @@
     <div class="business_head card-setup" [class.noBanner]="categorySlider.length === 0">
 
 
-      <div class="title">
-        <h2>Mangalore meri jaaan</h2>
-        <p class="sub-title">Digital Marketting and Social Engineering</p>
-        <a href="http://google.com" target="_blank" rel="noopener noreferrer"><i class="bi bi-globe"></i> PersonalWebsite.com</a>
-        <a href="https://maps.app.goo.gl/4vgxkTKKn6THuy6v6" target="_blank" rel="noopener noreferrer"><i class="bi bi-geo-alt-fill"></i>&nbsp;Direction</a>
+      <div class="business_title">
+<div class="title">
 
+
+  <h2>Mangalore meri jaaan</h2>
+  <p class="sub-title">Digital Marketting and Social Engineering</p>
+  <a href="http://google.com" target="_blank" rel="noopener noreferrer"><i class="bi bi-globe"></i> PersonalWebsite.com</a>
+  <a href="https://maps.app.goo.gl/4vgxkTKKn6THuy6v6" target="_blank" rel="noopener noreferrer"><i class="bi bi-geo-alt-fill"></i>&nbsp;Direction</a>
+</div>
+<div class="titleBtn">
+  <button class="btn">Apply here</button>
+</div>
+
+        </div>
         <div class="body_card">
           <div class="body_card_wrapper">
-
             <p class="label">
               Contact info
             </p>
-              <a href="mailto:mmj@mangalore.com"><i class="bi bi-envelope-paper"></i> mangalore merijaan</a>
-              <a href="tel:+91-9988987878"><i class="bi bi-telephone-outbound"></i> +91-9988987878</a>
+              <a href="mailto:mmj@mangalore.com"><i class="bi bi-envelope-paper"></i>&nbsp; mangalore merijaan</a>
+              <a href="tel:+91-9988987878"><i class="bi bi-telephone-outbound"></i>&nbsp; +91-9988987878</a>
           </div>
           <div class="body_card_wrapper">
             <p>
@@ -34,10 +41,10 @@
             <p>Bejai, Mangalore</p>
             <p>pincode: 575001</p>
           </div>
-        </div>
+        <!-- </div> -->
       </div>
     </div>
-
+@if (type !== 'job') {
     <div class="business_service card-setup">
       @for (item of businessImage; track $index) {
       <div class="business_service_main">
@@ -51,13 +58,14 @@
     </div>
   }
     </div>
+  }
     <div class="details">
       <app-details-tab></app-details-tab>
     </div>
 
-    <div class="business_geo card-setup">
+    <!-- <div class="business_geo card-setup">
       <h2>Easy Navigate</h2>
-    </div>
+    </div> -->
 
   </div>
 </div>

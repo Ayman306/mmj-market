@@ -49,5 +49,5 @@ chunk(arr: any[], size: number): any[][] {
   }
   return chunks;
 }
-
+type="job"
 }

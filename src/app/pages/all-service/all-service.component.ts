@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
 import { ServicecardComponent } from '../../shared/servicecard/servicecard.component';
+import { TitleCasePipe } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-all-service',
   standalone: true,
-  imports: [ServicecardComponent],
+  imports: [ServicecardComponent, TitleCasePipe],
   templateUrl: './all-service.component.html',
   styleUrl: './all-service.component.scss'
 })
@@ -76,4 +78,11 @@ export class AllServiceComponent {
     },
 
   ]
+  type = 'jobs'
+  constructor(private route:Router) {}
+navigateTo(index:any){
+
+    this.route.navigate(['/service'],{queryParams: { id: index }})
+
+}
 }

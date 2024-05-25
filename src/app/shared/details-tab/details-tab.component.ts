@@ -26,7 +26,7 @@ export class DetailsTabComponent implements OnInit{
 
   }
 tabs =[
-  'Menu',
+  'Overview',
   'Photos',
   'About'
 ]

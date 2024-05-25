@@ -26,22 +26,22 @@ categories=[
   },
   {
     logo:'../../../assets/icons/icons8-restaurant-50.png',
-    name:'Restaurants',
+    name:'Hotel',
     id:2
   },
   {
     logo:'../../../assets/icons/icons8-restaurant-50.png',
-    name:'Restaurants',
+    name:'Gym',
     id:3
   },
   {
     logo:'../../../assets/icons/icons8-restaurant-50.png',
-    name:'Restaurants',
+    name:'Events',
     id:4
   },
   {
     logo:'../../../assets/icons/icons8-restaurant-50.png',
-    name:'Restaurants',
+    name:'Jobs',
     id:5
   },
   {
