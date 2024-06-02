@@ -1,28 +1,23 @@
 <div class="container mt-4">
   <div class="all-service">
-    <h2 class="head">{{type | titlecase}}</h2>
+    <h2 class="head">{{type | titlecase}} picks for you</h2>
   <div class="event">
 
     @switch (type) {
       @case('Restraunt'){
       @for (item of banner; track $index) {
         <app-servicecard [item]="item"></app-servicecard>
+      } @empty {
+        <p>No banner available</p>
       }
   }
 
   @case('jobs'){
     <div class="job">
-      @for (item of banner; track $index) {
-      <div class="job_main"  (click)="navigateTo($index)">
-        <div class="job_img">
-          <img [src]="item.image" alt="" srcset="">
-        </div>
-        <div class="content">
-          <p class="title">{{ item.username }}</p>
-          <p>{{ item.desc }}</p>
-          <button class="btn" (click)="navigateTo($index)">{{ item.button }}</button>
-        </div>
-      </div>
+      @for (item of service; track $index) {
+      <app-jobcard [item]="item"></app-jobcard>
+    }@empty {
+      <p>{{type | titlecase}} available soon!</p>
     }
     </div>
   }

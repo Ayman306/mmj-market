@@ -1,0 +1,14 @@
+<div class="job_main"  (click)="navigateTo(item?.jobpost?.job_detail?.id)">
+  <div class="job_img">
+    <img [src]="media?.file_path || '../../../../assets/icons/icons8-restaurant-50.png'" alt="" srcset="">
+  </div>
+  <div class="content">
+    <p class="title">{{ item?.jobpost?.job_detail?.title }}</p>
+    <p class="sub-title">{{item?.jobpost?.job_detail?.company_name}}</p>
+    <p class="location">{{item?.jobpost?.contact_details?.city}} {{item?.jobpost?.contact_details?.state}} {{item?.jobpost?.job_detail?.employment_type}}</p>
+    <p class="postedDate">{{item?.jobpost?.job_detail?.created_date | date:'dd/MM/yyyy'}}</p>
+
+
+    <!-- <button class="btn" (click)="navigateTo($index)">{{ item.button }}</button> -->
+  </div>
+</div>

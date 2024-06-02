@@ -69,6 +69,10 @@
             &:hover{
               box-shadow:0.2px 0.2px 5px $primary-yellow;
             }
+            a{
+              color: $primary-white;
+              font-weight: normal;
+            }
           }
         }
         @media (max-width:480px) {
@@ -81,7 +85,7 @@
       .title{
         display: grid;
         grid-template-columns: 1fr;
-        gap: 8px;
+        gap: 5px;
         margin-bottom: 8px;
         h2{
           text-transform: capitalize;
@@ -89,6 +93,10 @@
         }
         p{
           font-size: 14px;
+        }
+        .company{
+          font-size: 18px;
+          font-weight: bold;
         }
       }
     }
@@ -179,8 +187,6 @@
         justify-content: center;
         flex-direction: row;
       }
-    }
-    &_geo{
     }
     @media (max-width:480px) {
      .logo{

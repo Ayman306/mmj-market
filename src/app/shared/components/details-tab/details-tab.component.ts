@@ -1,5 +1,5 @@
 import { NgOptimizedImage, TitleCasePipe } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Lightbox, LightboxConfig, LightboxModule } from 'ngx-lightbox';
 
 @Component({
@@ -10,6 +10,7 @@ import { Lightbox, LightboxConfig, LightboxModule } from 'ngx-lightbox';
   styleUrl: './details-tab.component.scss'
 })
 export class DetailsTabComponent implements OnInit{
+  @Input() details:any
   constructor(private _lightbox: Lightbox, private _lightboxConfig: LightboxConfig){
     this._lightboxConfig.fadeDuration = 1;
     this._lightboxConfig.disableScrolling = true;

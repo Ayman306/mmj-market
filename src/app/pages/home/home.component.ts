@@ -1,66 +1,51 @@
-import { Component } from '@angular/core';
-import { SliderComponent } from '../../shared/slider/slider.component';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { ServicecardComponent } from '../../shared/servicecard/servicecard.component';
+import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { SliderComponent } from '../../shared/components/slider/slider.component';
+import { ServicecardComponent } from '../../shared/components/servicecard/servicecard.component';
 import {  Router } from '@angular/router';
-import { EnquiryFormComponent } from '../../shared/enquiry-form/enquiry-form.component';
-import { FooterComponent } from '../../shared/footer/footer.component';
+import { EnquiryFormComponent } from '../../shared/components/enquiry-form/enquiry-form.component';
+import { FooterComponent } from '../../shared/components/footer/footer.component';
 import { NgOptimizedImage } from '@angular/common';
+import { ApiService } from '../../shared/service/api.service';
+import { NgxSpinnerService } from 'ngx-spinner';
+// import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [SliderComponent,ServicecardComponent,EnquiryFormComponent,FooterComponent,NgOptimizedImage],
+  imports: [CommonModule,SliderComponent,ServicecardComponent,EnquiryFormComponent,FooterComponent,NgOptimizedImage],
+  providers:[ApiService],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit{
 
- constructor(private route:Router){}
+ constructor(private route:Router,private apiService:ApiService,private spinner: NgxSpinnerService){}
 
-categories=[
-  {
-    logo:'../../../assets/icons/icons8-restaurant-50.png',
-    name:'Restaurants',
-    id:1
-  },
-  {
-    logo:'../../../assets/icons/icons8-restaurant-50.png',
-    name:'Hotel',
-    id:2
-  },
-  {
-    logo:'../../../assets/icons/icons8-restaurant-50.png',
-    name:'Gym',
-    id:3
-  },
-  {
-    logo:'../../../assets/icons/icons8-restaurant-50.png',
-    name:'Events',
-    id:4
-  },
-  {
-    logo:'../../../assets/icons/icons8-restaurant-50.png',
-    name:'Jobs',
-    id:5
-  },
-  {
-    logo:'../../../assets/icons/icons8-restaurant-50.png',
-    name:'Restaurants',
-    id:6
-  },{
-    logo:'../../../assets/icons/icons8-restaurant-50.png',
-    name:'Restaurants',
-    id:7
-  },
-  {
-    logo:'../../../assets/icons/icons8-restaurant-50.png',
-    name:'Restaurants',
-    id:8
+  ngOnInit(): void {
+    this.getAllCategory()
+    // this.toaster.success("Welcome!")
   }
-]
+
+categories:any
+
+
+  getAllCategory(){
+    this.spinner.show()
+    this.apiService.getAllCategory().subscribe(
+      (res) => {
+        this.categories = res;
+        this.spinner.hide()
+      },
+      (err) => {
+        console.log(err);
+        this.spinner.hide()
+      }
+    );
+  }
+
 banner=[
-  {
+{
     username:'Fashionista',
     location:'Surathkal-Mangalore',
         userImage:'../../../assets/images/martin-pechy-Rp2fQv6AM44-unsplash.jpg',
@@ -115,11 +100,11 @@ carouselImages = [
   { src: '../../../assets/images/redcharlie-mugDbuNnbd0-unsplash.jpg', alt: 'Slide 3' }
 ];
 
-navigateTo(type:string,index:any){
+navigateTo(type:string,name:any){
   if(type=='category'){
-    this.route.navigate(['/all-service'],{queryParams: { id: index }})
+    this.route.navigate(['/all-service'],{queryParams: { service: name }})
   }else{
-    this.route.navigate(['/service'],{queryParams: { id: index }})
+    this.route.navigate(['/service'],{queryParams: { service: name }})
   }
 }
 

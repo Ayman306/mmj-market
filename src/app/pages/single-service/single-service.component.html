@@ -7,7 +7,7 @@
 }
   <div class="business">
     <div class="logo"  [class.noBanner]="categorySlider.length === 0">
-      <img ngSrc="../../../assets/mmj_logo.png" alt="" srcset="" class="w-100 h-100" width="100" height="100">
+      <img src="../../../assets/mmj_logo.png" alt="" srcset="" class="w-100 h-100" width="100" height="100">
     </div>
     <div class="business_head card-setup" [class.noBanner]="categorySlider.length === 0">
 
@@ -16,14 +16,17 @@
 <div class="title">
 
 
-  <h2>Mangalore meri jaaan</h2>
-  <p class="sub-title">Digital Marketting and Social Engineering</p>
-  <a href="http://google.com" target="_blank" rel="noopener noreferrer"><i class="bi bi-globe"></i> PersonalWebsite.com</a>
-  <a href="https://maps.app.goo.gl/4vgxkTKKn6THuy6v6" target="_blank" rel="noopener noreferrer"><i class="bi bi-geo-alt-fill"></i>&nbsp;Direction</a>
+  <h2>{{jobDetail?.title}}</h2>
+  <p class="company">{{jobDetail?.company_name}}</p>
+  <p class="sub-title">{{jobDetail?.tag_line}}</p>
+    <a [href]="contactDetail?.web_url" target="_blank" rel="noopener noreferrer"><i class="bi bi-globe"></i>&nbsp;{{contactDetail?.web_url}} </a>
+    <a [href]="contactDetail?.geo_location" target="_blank" rel="noopener noreferrer"><i class="bi bi-geo-alt-fill"></i>&nbsp;Direction</a>
 </div>
+@if (jobDetail?.apply_url) {
 <div class="titleBtn">
-  <button class="btn">Apply here</button>
+  <button class="btn"><a [href]="jobDetail?.apply_url" target="_blank" rel="noopener noreferrer">Apply here</a> </button>
 </div>
+}
 
         </div>
         <div class="body_card">
@@ -31,15 +34,16 @@
             <p class="label">
               Contact info
             </p>
-              <a href="mailto:mmj@mangalore.com"><i class="bi bi-envelope-paper"></i>&nbsp; mangalore merijaan</a>
-              <a href="tel:+91-9988987878"><i class="bi bi-telephone-outbound"></i>&nbsp; +91-9988987878</a>
+              <a [href]="'mailto:'+ contactDetail?.email"><i class="bi bi-envelope-paper"></i>&nbsp; {{contactDetail?.email}}</a>
+              <a [href]="'tel:'+contactDetail?.primary_contact"><i class="bi bi-telephone-outbound"></i>&nbsp; {{contactDetail?.primary_contact}}</a>
+              <a [href]="'tel:'+contactDetail?.alternative_contact"><i class="bi bi-telephone-outbound"></i>&nbsp; {{contactDetail?.alternative_contact}}</a>
           </div>
           <div class="body_card_wrapper">
             <p>
-              Ajanta Buinisess center,
+              {{contactDetail?.address}}
             </p>
-            <p>Bejai, Mangalore</p>
-            <p>pincode: 575001</p>
+            <p>{{contactDetail?.city}} {{contactDetail?.state}}</p>
+            <p>{{'pincode:'+ contactDetail?.pincode}} </p>
           </div>
         <!-- </div> -->
       </div>
@@ -60,7 +64,7 @@
     </div>
   }
     <div class="details">
-      <app-details-tab></app-details-tab>
+      <app-details-tab [details]="masterData"></app-details-tab>
     </div>
 
     <!-- <div class="business_geo card-setup">

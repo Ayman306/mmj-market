@@ -4,9 +4,9 @@
   <div class="container-fluid m-2">
     <div class="category d-flex flex-row flex-wrap justify-content-center">
       @for (item of categories; track $index) {
-      <div class="main flex-column justify-content-center" (click)="navigateTo('category',item.id)">
+      <div class="main flex-column justify-content-center" (click)="navigateTo('category',item.name)">
         <div class="logo d-block">
-          <img [ngSrc]="item.logo" alt="" srcset="" class="w-100 h-100" width="100" height="100"/>
+          <img [ngSrc]="item.media || '../../../assets/icons/icons8-restaurant-50.png'" alt="" srcset="" class="w-100 h-100" width="100" height="100"/>
         </div>
         <p class="text-center m-0 sub-title fw-bold">{{ item.name }}</p>
       </div>

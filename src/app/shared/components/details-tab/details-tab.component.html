@@ -17,53 +17,70 @@
   @case('Overview'){
     <div class="details_overview">
       <div class="content">
+
+        @if (details?.jobDetail?.title) {
         <div class="content_section">
           <p class="label">Job title</p>
-          <p class="value">Front end engineer</p>
+          <p class="value">{{details?.jobDetail?.title}}</p>
         </div>
+      }
+
+      @if (details?.jobDetail?.company_name) {
 
         <div class="content_section">
           <p class="label">Company name</p>
-          <p class="value">Horizontal</p>
+          <p class="value">{{details?.jobDetail?.company_name}}</p>
         </div>
+      }
 
-
+      @if (details?.jobDetail?.description) {
         <div class="content_section">
           <p class="label">Job Summary</p>
-          <p class="value">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maxime eum repellendus, hic adipisci, earum sapiente obcaecati corporis rem expedita soluta perspiciatis porro dolores ullam minus in impedit dignissimos, quam facere.</p>
+          <p class="value">{{details?.jobDetail?.description}}</p>
         </div>
+      }
 
+      @if (details?.jobDetail?.responsibility) {
         <div class="content_section">
           <p class="label">Responsibility</p>
-          <p class="value">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maxime eum repellendus, hic adipisci, earum sapiente obcaecati corporis rem expedita soluta perspiciatis porro dolores ullam minus in impedit dignissimos, quam facere.</p>
+          <p class="value">{{details?.jobDetail?.responsibility}}</p>
         </div>
+      }
 
+      @if (details?.jobDetail?.qualification) {
 <div class="content_section">
           <p class="label">Qualification</p>
-          <p class="value">MCA</p>
+          <p class="value">{{details?.jobDetail?.qualification}}</p>
         </div>
+      }
 
+      @if (details?.jobDetail?.employment_type) {
 <div class="content_section">
           <p class="label">Employment type</p>
-          <p class="value">Full time</p>
+          <p class="value">{{details?.jobDetail?.employment_type}}</p>
         </div>
+      }
 
-
+      @if (details?.jobDetail?.salary_range) {
         <div class="content_section">
           <p class="label">Salary</p>
-          <p class="value">Rs. 50000 - Rs. 100000 /month</p>
+          <p class="value">Rs. {{details?.jobDetail?.salary_range}} /month</p>
         </div>
+      }
 
+      @if (details?.jobDetail?.number_of_opening) {
         <div class="content_section">
           <p class="label">Number of Openings</p>
-          <p class="value">3</p>
+          <p class="value">{{details?.jobDetail?.number_of_opening}}</p>
         </div>
+      }
 
-
+      @if (details?.jobDetail?.apply_url) {
         <div class="content_section">
           <p class="label">Apply here</p>
-          <p class="value">linkkkding.com/here</p>
+          <p class="value">{{details?.jobDetail?.apply_url}}</p>
         </div>
+      }
 
 
       </div>
