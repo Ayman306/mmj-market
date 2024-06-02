@@ -61,9 +61,10 @@ getServiceDetail(){
   if(this.type=='job'){
     let body = {id:this.serviceId.toString()}
     this.apiService.getAllJobs(body).subscribe((res)=>{
-      this.masterData = res[0]
+      this.masterData = res[0]?.jobpost
       this.jobDetail = res[0]?.jobpost?.job_detail
       this.contactDetail = res[0]?.jobpost?.contact_details
+      console.log(this.masterData)
       console.log(this.jobDetail,'jobdewtails')
       console.log(this.contactDetail,'contact details')
     })
