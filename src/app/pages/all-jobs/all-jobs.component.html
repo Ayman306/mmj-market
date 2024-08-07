@@ -1,0 +1,120 @@
+<div class="main">
+  <div class="banner-main">
+    <div class="banner">
+      <div class="left">
+        <div class="img">
+          <img src="../../../assets/images/Creative thinking.gif" alt="" class=" h-100">
+        </div>
+      </div>
+      <div class="right">
+        <div class="content">
+          <!-- <h1 class="title">Find Your Career. <br> You Deserve it.</h1> -->
+          <h1 class="title">Find a job that works for you</h1>
+          <p class="subtitle ">Embark on a personalized journey to discover a career that aligns with your passions,
+            skills, and aspirations with our "Find a Job That Works for You" platform.</p>
+
+          <div class="social-card">
+            @for (item of socials; track $index) {
+            <div class="icon">
+              <img [src]="item.icon" alt="" srcset="" class="w-100 h-100">
+            </div>
+            }
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div class="feature">
+    <div class="feature_left">
+      <h1>Job openings in and around <span class="text-highlight">Mangaluru</span> </h1>
+      <p>Make the most of growth opportunities</p>
+      <div class="img">
+        <video src="../../../assets/images/Programming.mp4" autoplay muted loop playsinline
+          class="h-100 m-auto d-block"></video>
+      </div>
+    </div>
+    <div class="feature_right">
+      <p>Dive into a world of endless possibilities with our platform, covering over 30+ diverse job and career avenues.
+      </p>
+      <div class="img">
+        <img src="../../../assets/images/Online world.gif" alt="" srcset="" class="h-100">
+      </div>
+    </div>
+  </div>
+
+  <div class="jobs">
+    <div class="head">
+      <h1 class="title">Find your favourite job</h1>
+    </div>
+    <!-- <img src="../../../assets/memoji/memoji-thumsup.png" alt="" srcset=""> -->
+  </div>
+  <div class="joblist">
+    @for (item of jobPost$ | async; track $index) {
+    <div class="job-item" (click)="jobDetail(item?.jobpost_id)">
+      <div class="liner-border two"></div>
+      <div class="job-title-wrap">
+        <div class="job-image-wrap">
+          <img [src]="item?.logo" alt="" srcset="" class="w-100 h-100"> <!-- chnaeg the image here LATER -->
+        </div>
+        <div>
+          <h3 class="job-title">{{item?.title | titlecase}}</h3>
+          <div class="job-detail">
+            <div class="job-desc-item">
+              <img
+                src="https://assets-global.website-files.com/65a20a5956b023277710eac9/65a4ff9109fa07488afac7e2_icon-26.svg"
+                loading="eager" alt="Location Icon">
+              <div>{{item?.city}}</div>
+            </div>
+            <div class="job-desc-item"><img
+                src="https://assets-global.website-files.com/65a20a5956b023277710eac9/65a4ff87be710dfe7a4717e1_icon-27.svg"
+                loading="eager" alt="Icon">
+              <div>{{item?.company_name}}</div>
+            </div>
+            <div class="job-desc-item"><img
+                src="https://assets-global.website-files.com/65a20a5956b023277710eac9/65a4ff88264fa4767d66ddba_icon-28.svg"
+                loading="eager" alt="Icon">
+              <div>{{item?.employment_type}}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="button-primary">
+        View details
+      </div>
+    </div>
+    }
+    <div class="view-all">
+      <button class="btn">View all jobs</button>
+    </div>
+  </div>
+
+  <section class="feature_two">
+    <div class="left">
+      <!-- <img src="../../../assets/images/team-spirit-animate.svg" alt=""> -->
+      <video src="../../../assets/images/Team-spirit.mp4" autoplay muted loop playsinline
+        class="h-100 m-auto d-block"></video>
+    </div>
+    <div class="right">
+      <p class="text-highlight text-uppercase">
+        Why choose us
+      </p>
+      <h2>Providing best options and contribute to Mangalore</h2>
+      <p class="desc">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab totam odit exercitationem ea assumenda provident,
+        mollitia in ducimus nihil id deserunt? Blanditiis reprehenderit a quaerat commodi numquam eius ex debitis.
+      </p>
+      <div class="card-wrapper">
+        @for (feature of features; track $index) {
+        <div class="card-main">
+          <!-- <div class="icon"></div> -->
+          <div class="content">
+            <h3 class="title">{{feature?.title}}</h3>
+            <p class="subtitle">{{feature?.description}}</p>
+          </div>
+        </div>
+        }
+      </div>
+    </div>
+  </section>
+</div>

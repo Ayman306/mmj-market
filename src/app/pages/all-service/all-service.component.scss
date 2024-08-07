@@ -1,24 +1,131 @@
 @import '../../../assets/custom/__variable';
-.container{
-  height:90vh;
+
+.main {
+  height: 90vh;
   overflow: auto;
 
-.all-service{
-  padding: 10px;
-  background-color: $secondaary-bg-black;
-  border-radius: 10px;
+  .banner {
+    background: $primary-green;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 400px;
+    border-radius: 20px;
+    width: 90%;
+    margin: 10px auto;
 
-  height:calc(100% - 220px)
-}
-.head{
-  padding: 20px;
-}
+    .left,
+    .right {
+      height: inherit;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
 
-.job{
-  display: flex;
-  flex-direction: row;
-  gap: 10px;
-  flex-wrap: wrap;
-  justify-content: center;
-}
+    .right {
+      .content {
+        width: 75%;
+        margin: auto;
+        color: $primary-white;
+
+        .subtitle {
+          color: $primary-white;
+          // width: 75%;
+        }
+
+      }
+    }
+
+    .left {
+      .img {
+        height: inherit;
+        margin: auto;
+      }
+    }
+
+    .right {
+      background-color: $secondary-green;
+      padding: 10px;
+      border-top-right-radius: 20px;
+      border-bottom-right-radius: 20px;
+    }
+
+    @media (max-width:480px) {
+      grid-template-columns: 1fr;
+      height: auto;
+
+      .left {
+
+        .img {
+          height: 200px;
+        }
+      }
+
+      .right {
+        border-top-right-radius: 0px;
+        border-bottom-left-radius: 20px;
+
+        .content {
+
+          padding: 10px;
+          text-align: center;
+
+          .title {
+            font-size: 18px;
+          }
+
+          .subtitle {
+            font-size: 14px;
+            width: 90%;
+            margin: 5px auto;
+          }
+        }
+      }
+    }
+  }
+
+  .banner-main {
+    .social-card {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      flex-direction: column;
+      grid-gap: 10px;
+      height: 100px;
+      width: 90%;
+      margin: auto;
+      background: $primary-green;
+
+      .icon {
+        /* width: 50%; */
+        padding: 5px;
+        /* background: white; */
+        box-shadow: 1px 1px 3px 2px white;
+        height: inherit;
+
+        img {
+          padding: 10px;
+        }
+      }
+    }
+  }
+
+  .all-service {
+    padding: 10px;
+    background-color: $secondaary-bg-black;
+    border-radius: 10px;
+
+    height: calc(100% - 220px)
+  }
+
+  .head {
+    padding: 20px;
+  }
+
+  .job {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 }
