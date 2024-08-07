@@ -2,121 +2,121 @@
 
   <ul class="nav nav-tabs justify-content-center">
     @for (tab of tabs; track $index) {
-  <li class="nav-item">
-    <!-- <a class="nav-link active" aria-current="page">  -->
+    <li class="nav-item">
+      <!-- <a class="nav-link active" aria-current="page">  -->
       <a class="nav-link" [class.active]="active === tab" (click)="active=tab">
         {{ tab | titlecase }}
       </a>
-  </li>
-}
+    </li>
+    }
 
-</ul>
+  </ul>
 </div>
 <div class="details">
   @switch (active) {
   @case('Overview'){
-    <div class="details_overview">
-      <div class="content">
+  <div class="details_overview">
+    <div class="content">
 
-        @if (details?.job_detail?.title) {
-        <div class="content_section">
-          <p class="label">Job title</p>
-          <p class="value">{{details?.job_detail?.title}}</p>
-        </div>
-      }
-
-      @if (details?.job_detail?.company_name) {
-
-        <div class="content_section">
-          <p class="label">Company name</p>
-          <p class="value">{{details?.job_detail?.company_name}}</p>
-        </div>
-      }
-
-      @if (details?.job_detail?.description) {
-        <div class="content_section">
-          <p class="label">Job Summary</p>
-          <p class="value">{{details?.job_detail?.description}}</p>
-        </div>
-      }
-
-      @if (details?.job_detail?.responsibility) {
-        <div class="content_section">
-          <p class="label">Responsibility</p>
-          <p class="value">{{details?.job_detail?.responsibility}}</p>
-        </div>
-      }
-
-      @if (details?.job_detail?.qualification) {
-<div class="content_section">
-          <p class="label">Qualification</p>
-          <p class="value">{{details?.job_detail?.qualification}}</p>
-        </div>
-      }
-
-      @if (details?.job_detail?.employment_type) {
-<div class="content_section">
-          <p class="label">Employment type</p>
-          <p class="value">{{details?.job_detail?.employment_type}}</p>
-        </div>
-      }
-
-      @if (details?.job_detail?.salary_range) {
-        <div class="content_section">
-          <p class="label">Salary</p>
-          <p class="value">Rs. {{details?.job_detail?.salary_range}} /month</p>
-        </div>
-      }
-
-      @if (details?.job_detail?.number_of_opening) {
-        <div class="content_section">
-          <p class="label">Number of Openings</p>
-          <p class="value">{{details?.job_detail?.number_of_opening}}</p>
-        </div>
-      }
-
-      @if (details?.job_detail?.apply_url) {
-        <div class="content_section">
-          <p class="label">Apply here</p>
-          <p class="value">{{details?.job_detail?.apply_url}}</p>
-        </div>
-      }
-
-
+      @if (details?.title) {
+      <div class="content_section">
+        <p class="label">Job title</p>
+        <p class="value">{{details?.title}}</p>
       </div>
+      }
+
+      @if (details?.company_name) {
+
+      <div class="content_section">
+        <p class="label">Company name</p>
+        <p class="value">{{details?.company_name}}</p>
+      </div>
+      }
+
+      @if (details?.description) {
+      <div class="content_section">
+        <p class="label">Job Summary</p>
+        <p class="value">{{details?.description}}</p>
+      </div>
+      }
+
+      @if (details?.responsibility) {
+      <div class="content_section">
+        <p class="label">Responsibility</p>
+        <p class="value">{{details?.responsibility}}</p>
+      </div>
+      }
+
+      @if (details?.qualification) {
+      <div class="content_section">
+        <p class="label">Qualification</p>
+        <p class="value">{{details?.qualification}}</p>
+      </div>
+      }
+
+      @if (details?.employment_type) {
+      <div class="content_section">
+        <p class="label">Employment type</p>
+        <p class="value">{{details?.employment_type}}</p>
+      </div>
+      }
+
+      @if (details?.salary_range) {
+      <div class="content_section">
+        <p class="label">Salary</p>
+        <p class="value">Rs. {{details?.salary_range}}</p>
+      </div>
+      }
+
+      @if (details?.number_of_opening) {
+      <div class="content_section">
+        <p class="label">Number of Openings</p>
+        <p class="value">{{details?.number_of_opening}}</p>
+      </div>
+      }
+
+      @if (details?.apply_url) {
+      <div class="content_section">
+        <p class="label">Apply here</p>
+        <p class="value">{{details?.apply_url}}</p>
+      </div>
+      }
+
+
     </div>
+  </div>
   }
   @case ('Menu'){
-    <div class="details_gallery">
-      @for (album of albums; track $index) {
-      <div class="gallery__item" (click)="open($index)">
-        <img [src]="album.src" alt="" class="gallery__image w-100 h-100" >
-      </div>
-    }
+  <div class="details_gallery">
+    @for (album of albums; track $index) {
+    <div class="gallery__item" (click)="open($index)">
+      <img [src]="album.src" alt="" class="gallery__image w-100 h-100">
     </div>
+    }
+  </div>
   }
   @case ('Reviews'){
-    'Reviews'
+  'Reviews'
   }
 
   @case ('Photos'){
-    <div class="details_gallery">
-      @for (album of albums; track $index) {
-      <div class="gallery__item" (click)="open($index)">
-        <img [src]="album.src" alt="" class="gallery__image w-100 h-100" width="200" height="200">
-      </div>
-    }
+  <div class="details_gallery">
+    @for (album of albums; track $index) {
+    <div class="gallery__item" (click)="open($index)">
+      <img [src]="album.src" alt="" class="gallery__image w-100 h-100" width="200" height="200">
     </div>
+    }
+  </div>
   }
 
   @case ('About'){
 
-    'About'
+  'About'
   }
 
   @default{
 
-    'defaut'
+  'defaut'
   }
   }
 </div>
