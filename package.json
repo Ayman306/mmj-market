@@ -7,7 +7,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:mmj-market": "node dist/mmj-market/server/server.mjs"
+    "serve:ssr:mmj-market": "node dist/mmj-market/server/server.mjs",
+    "hostlocal":"ng serve --proxy-config proxy.conf.json --open --host 0.0.0.0 --disable-host-check"
   },
   "private": true,
   "dependencies": {

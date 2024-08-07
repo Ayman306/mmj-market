@@ -7,7 +7,26 @@
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
-          "style": "scss"
+          "style": "scss",
+          "spec": false
+        },
+        "@schematics/angular:directive": {
+          "spec": false
+        },
+        "@schematics/angular:service": {
+          "spec": false
+        },
+        "@schematics/angular:class": {
+          "spec": false
+        },
+        "@schematics/angular:guard": {
+          "spec": false
+        },
+        "@schematics/angular:interface": {
+          "spec": false
+        },
+        "@schematics/angular:enum": {
+          "spec": false
         }
       },
       "root": "",
@@ -33,6 +52,7 @@
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "node_modules/bootstrap-icons/font/bootstrap-icons.css",
               "node_modules/ngx-lightbox/lightbox.css",
+              "src/assets/custom/__variable.scss",
               "src/styles.scss"
             ],
             "scripts": [
@@ -110,6 +130,7 @@
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "node_modules/bootstrap-icons/font/bootstrap-icons.css",
               "node_modules/ngx-lightbox/lightbox.css",
+              "src/assets/custom/__variable.scss",
               "src/styles.scss"
             ],
             "scripts": [
@@ -125,3 +146,4 @@
     "analytics": "440bdd33-58b0-4e42-8ce8-cada247048af"
   }
 }
+
