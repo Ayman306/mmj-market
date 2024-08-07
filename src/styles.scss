@@ -3,22 +3,25 @@
 @import './assets/fonts/fonts.scss';
 @import './assets/custom/__variable';
 
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   transition: all 0.3s ease-in-out;
 
 }
-html{
+
+html {
   scroll-behavior: smooth;
 }
-body{
+
+body {
   font-family: "Roboto", sans-serif;
   position: relative;
   -webkit-overflow-scrolling: touch;
 }
-p{
+
+p {
   color: $light-black;
   margin: 0;
 }
@@ -44,12 +47,14 @@ p{
   background: $primary-orange;
 }
 
-.event{
+.event {
   // display: grid;
   // grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap: clamp(20px,10vw,30px);
+  gap: clamp(20px, 10vw, 30px);
   display: flex;
   flex-wrap: wrap;
-  justify-content: center; /* Center content horizontally */
-  align-items: center; /* Center content vertically if there's a height */
+  justify-content: center;
+  /* Center content horizontally */
+  align-items: center;
+  /* Center content vertically if there's a height */
 }
