@@ -1,4 +1,10 @@
-nav{
+@import '../assets/custom/_variable.scss';
+
+nav {
+  width: 90%;
+  margin: 10px auto;
+
+  border-radius: 10px;
   display: flex;
   justify-content: space-around;
   padding: 5px;
@@ -7,20 +13,60 @@ nav{
   z-index: 99;
   align-items: center;
 
-  background: rgba(255, 255, 255, 0.2); /* Semi-transparent white */
+  background: rgba(255, 255, 255, 0.2);
+  /* Semi-transparent white */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(10px); /* Frosted glass effect */
-  -webkit-backdrop-filter: blur(10px); /* Safari support */
+  backdrop-filter: blur(10px);
+  /* Frosted glass effect */
+  -webkit-backdrop-filter: blur(10px);
+  /* Safari support */
 
-  .logo{
-    width: clamp(100px,10vw,200px);
-    img{
-      cursor:pointer
+  .logo {
+    width: clamp(100px, 10vw, 200px);
+
+    img {
+      cursor: pointer
     }
   }
+
   @media (max-width:480px) {
-    .whatsapp{
+    .whatsapp {
       width: 35px;
     }
   }
+}
+
+.body_main {
+  // width: 90%;
+  // margin: 0 auto;
+}
+
+.whatsapp {
+  position: fixed;
+  bottom: 20px;
+  /* Adjust as needed */
+  right: 20px;
+  /* Adjust as needed */
+  z-index: 1000;
+  /* Ensure it stays on top */
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+}
+
+.button-text {
+  display: none;
+  /* Initially hidden */
+  transition: 0.8s all ease-in-out;
+  /* Smooth transition */
+  transform: translateX(-100%);
+}
+
+.button-text.show {
+  display: block;
+  transform: translateX(14%);
+  background: $primary-green;
+  color: $primary-white;
+  padding: 5px 15px;
+  border-radius: 10px;
 }
