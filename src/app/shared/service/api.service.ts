@@ -6,7 +6,7 @@ import { environment } from '../../../environments/environment';
   providedIn: 'root',
 })
 export class ApiService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
   apiUrl = environment.apiUrl;
 
   getCategory(id?: any) {
@@ -14,6 +14,9 @@ export class ApiService {
   }
 
   getAllJobs(id?: any) {
-    return this.http.post<any>(`${this.apiUrl}/job`, id);
+    const body = {
+      id, status: true
+    }
+    return this.http.post<any>(`${this.apiUrl}/job`, body);
   }
 }

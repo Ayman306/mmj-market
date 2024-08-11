@@ -64,8 +64,7 @@ export class AllServiceComponent implements OnInit {
     switch (serviceType?.type) {
       case 'job':
         {
-          let body = { status: true };
-          this.apiService.getAllJobs(body).subscribe((res) => {
+          this.apiService.getAllJobs().subscribe((res) => {
             this.service = res?.result;
           });
         }

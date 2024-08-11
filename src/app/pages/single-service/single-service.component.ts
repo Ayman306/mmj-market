@@ -67,11 +67,11 @@ export class SingleServiceComponent implements OnInit {
   getServiceDetail(service: { id: string, type: string }) {
     switch (service.type) {
       case 'job':
-        let body = { id: service.id.toString() }
+        let body = service.id.toString()
         this.apiService.getAllJobs(body).subscribe((res) => {
           this.serviceDetail = res[0]?.jobpost?.job_detail
           this.jobDetail = res[0]?.jobpost?.job_detail
-          this.contactDetail = res[0]?.jobpost?.contact_details
+          this.contactDetail = res[0]?.jobpost?.contact_detail
         })
         break
 
