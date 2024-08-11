@@ -20,7 +20,7 @@ export class AllJobsComponent implements OnInit {
   ngOnInit(): void {
     this.jobPost$ = this._apiService.getAllJobs().pipe(
       map((response: any) => response?.result?.map((res: any) => ({
-        ...res.jobpost.contact_details,
+        ...res.jobpost.contact_detail,
         ...res.jobpost.job_detail,
         logo: '../../../assets/mmj_logo.png'
       })))
@@ -31,9 +31,16 @@ export class AllJobsComponent implements OnInit {
 
   features = this.shared.jobFeatures
 
-  jobDetail(id: string) {
-    this.route.navigate(['/service'], {
-      queryParams: { job: id }
-    });
+  jobDetail(id?: string) {
+    if (id) {
+      this.route.navigate(['/service'], {
+        queryParams: { job: id }
+      });
+    } else {
+      this.route.navigate(['/all-service'], {
+        queryParams: { job: 'all-job' }
+      });
+
+    }
   }
 }

@@ -38,7 +38,6 @@ export class AllServiceComponent implements OnInit {
     },
   ];
 
-  categoryId: any;
   categoryType: any;
   service = [];
 
@@ -48,38 +47,31 @@ export class AllServiceComponent implements OnInit {
     private apiService: ApiService
   ) { }
   ngOnInit(): void {
-    let categoryId: any
+    let serviceType: any
     this.route.queryParamMap.subscribe((params) => {
       const serviceQueryParam = params?.get('service');
       const jobQueryParam = params?.get('job');
 
       if (serviceQueryParam) {
-        categoryId = { id: serviceQueryParam || '', type: 'business' };
+        serviceType = { id: serviceQueryParam || '', type: 'business' };
       } else if (jobQueryParam) {
-        categoryId = { id: jobQueryParam || '', type: 'job' };
+        this.categoryType = serviceType = { type: 'job' };
       }
-
-      console.log(categoryId);
     });
-    this.getAllservices(categoryId);
+    this.getAllservices(serviceType);
   }
-  getAllservices(categoryId: { id: string, type: string }) {
-    console.log(categoryId);
-    this.apiService.getCategory(categoryId).subscribe((res) => {
-      this.categoryType = res[0];
-      console.log(this.categoryType);
-      switch (this.categoryType?.key) {
-        case 'job':
-          {
-            let body = { status: true };
-            this.apiService.getAllJobs(body).subscribe((res) => {
-              this.service = res?.result;
-              console.log(res);
-            });
-          }
-          break;
-      }
-    });
+  getAllservices(serviceType?: { id?: string, type: string }) {
+    switch (serviceType?.type) {
+      case 'job':
+        {
+          let body = { status: true };
+          this.apiService.getAllJobs(body).subscribe((res) => {
+            this.service = res?.result;
+          });
+        }
+        break;
+    }
+    // });
   }
   navigateTo(index: any) {
     this.router.navigate(['/service'], { queryParams: { service: index } });

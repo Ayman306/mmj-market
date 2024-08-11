@@ -1,29 +1,36 @@
 <div class="main">
+  <div class="hero">
+    <div class="content">
+      <h1 class="title">Vacancies</h1>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti eos hic mollitia officiis asperiores.</p>
+    </div>
+    <img src="../../../assets/images/aaabstract.webp" alt="" srcset="" class="header-img">
+  </div>
 
   <div class="all-service">
-    <h2 class="head">{{categoryType?.name | titlecase}} picks for you</h2>
-  <div class="event">
+    <h2 class="head">{{categoryType?.type | titlecase}} picks for you</h2>
+    <div class="service">
 
-    @switch (categoryType?.key) {
+      @switch (categoryType?.type) {
       @case('restraunt'){
       @for (item of banner; track $index) {
-        <app-servicecard [item]="item"></app-servicecard>
+      <app-servicecard [item]="item"></app-servicecard>
       } @empty {
-        <p>No banner available</p>
+      <p>No banner available</p>
       }
-  }
+      }
 
-  @case('job'){
-    <div class="job">
-      @for (item of service; track $index) {
-      <app-jobcard [item]="item"></app-jobcard>
-    }@empty {
-      <p>{{categoryType?.name | titlecase}} available soon!</p>
-    }
+      @case('job'){
+      <div class="job">
+        @for (item of service; track $index) {
+        <app-jobcard [item]="item"></app-jobcard>
+        }@empty {
+        <p>{{categoryType?.name | titlecase}} available soon!</p>
+        }
+      </div>
+      }
+      }
     </div>
-  }
-  }
-  </div>
   </div>
 
 </div>

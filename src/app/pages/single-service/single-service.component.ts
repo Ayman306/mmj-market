@@ -10,72 +10,82 @@ import { ApiService } from '../../shared/service/api.service';
 @Component({
   selector: 'app-single-service',
   standalone: true,
-  imports: [SliderComponent,EnquiryFormComponent,FooterComponent,DetailsTabComponent,NgOptimizedImage],
+  imports: [SliderComponent, EnquiryFormComponent, FooterComponent, DetailsTabComponent, NgOptimizedImage],
   templateUrl: './single-service.component.html',
   styleUrl: './single-service.component.scss'
 })
 export class SingleServiceComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute, private apiService:ApiService){}
-categorySlider=[
+  constructor(private route: ActivatedRoute, private apiService: ApiService) { }
+  categorySlider = [
     { src: '../../../assets/images/force-majeure-00tlC0Clfrs-unsplash.jpg', alt: 'Slide 1' }
-]
-businessImage=[
-  {
-    src:'../../../assets/images/force-majeure-00tlC0Clfrs-unsplash.jpg'
-  },
-  {
-    src:'../../../assets/images/martin-pechy-Rp2fQv6AM44-unsplash.jpg'
-  },
-  {
-    src:'../../../assets/images/redcharlie-mugDbuNnbd0-unsplash.jpg'
-  }
-  ,
-  {
-    src:'../../../assets/images/redcharlie-mugDbuNnbd0-unsplash.jpg'
-  },
-  {
-    src:'../../../assets/images/martin-pechy-Rp2fQv6AM44-unsplash.jpg'
-  },{
-    src:'../../../assets/images/force-majeure-00tlC0Clfrs-unsplash.jpg'
-  }
-]
-slides: any[][] = [];
-type="job"
-serviceId=""
-jobDetail:any
-contactDetail:any
-masterData:any
-ngOnInit(): void {
-  // this.slides = this.chunk(this.businessImage, 2);
+  ]
+  businessImage = [
+    {
+      src: '../../../assets/images/force-majeure-00tlC0Clfrs-unsplash.jpg'
+    },
+    {
+      src: '../../../assets/images/martin-pechy-Rp2fQv6AM44-unsplash.jpg'
+    },
+    {
+      src: '../../../assets/images/redcharlie-mugDbuNnbd0-unsplash.jpg'
+    }
+    ,
+    {
+      src: '../../../assets/images/redcharlie-mugDbuNnbd0-unsplash.jpg'
+    },
+    {
+      src: '../../../assets/images/martin-pechy-Rp2fQv6AM44-unsplash.jpg'
+    }, {
+      src: '../../../assets/images/force-majeure-00tlC0Clfrs-unsplash.jpg'
+    }
+  ]
+  slides: any[][] = [];
+  type = "job"
+  serviceId = ""
+  jobDetail: any
+  contactDetail: any
+  serviceDetail: any
+  ngOnInit(): void {
+    this.slides = this.chunk(this.businessImage, 2);
+    let service: any
+    this.route.queryParamMap.subscribe(params => {
+      const serviceQueryParam = params?.get('service');
+      const jobQueryParam = params?.get('job');
 
-  this.route.queryParamMap.subscribe(params => {
-    const queryParam = params.get('service');
-    this.serviceId = params.get('id') || '';
-    this.type = queryParam?.toLowerCase() || '';
-  });
-  this.getServiceDetail()
-}
-
-getServiceDetail(){
-  if(this.type=='job'){
-    let body = {id:this.serviceId.toString()}
-    this.apiService.getAllJobs(body).subscribe((res)=>{
-      this.masterData = res[0]?.jobpost
-      this.jobDetail = res[0]?.jobpost?.job_detail
-      this.contactDetail = res[0]?.jobpost?.contact_details
-      console.log(this.masterData)
-      console.log(this.jobDetail,'jobdewtails')
-      console.log(this.contactDetail,'contact details')
-    })
+      if (serviceQueryParam) {
+        service = { id: serviceQueryParam, type: 'business' }
+      } else if (jobQueryParam) {
+        service = { id: jobQueryParam, type: 'job' }
+      } else {
+        service = { id: '', type: '' }
+      }
+    });
+    this.getServiceDetail(service)
   }
-}
 
-chunk(arr: any[], size: number): any[][] {
-  const chunks = [];
-  for (let i = 0; i < arr.length; i += size) {
-    chunks.push(arr.slice(i, i + size));
+  getServiceDetail(service: { id: string, type: string }) {
+    switch (service.type) {
+      case 'job':
+        let body = { id: service.id.toString() }
+        this.apiService.getAllJobs(body).subscribe((res) => {
+          this.serviceDetail = res[0]?.jobpost?.job_detail
+          this.jobDetail = res[0]?.jobpost?.job_detail
+          this.contactDetail = res[0]?.jobpost?.contact_details
+        })
+        break
+
+    }
+    if (this.type == 'job') {
+
+    }
   }
-  return chunks;
-}
+
+  chunk(arr: any[], size: number): any[][] {
+    const chunks = [];
+    for (let i = 0; i < arr.length; i += size) {
+      chunks.push(arr.slice(i, i + size));
+    }
+    return chunks;
+  }
 }

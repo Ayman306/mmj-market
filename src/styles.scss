@@ -58,3 +58,12 @@ p {
   align-items: center;
   /* Center content vertically if there's a height */
 }
+
+.chip {
+  width: max-content;
+  padding: 5px 10px;
+  background: $primary-green;
+  border-radius: 20px;
+  color: $primary-white;
+  font-size: 12px;
+}

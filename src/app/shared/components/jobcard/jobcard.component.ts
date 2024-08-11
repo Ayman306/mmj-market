@@ -9,17 +9,19 @@ import { Router } from '@angular/router';
   templateUrl: './jobcard.component.html',
   styleUrl: './jobcard.component.scss'
 })
-export class JobcardComponent implements AfterViewInit{
-  @Input() item:any
-constructor(private route:Router) {}
-media:any
+export class JobcardComponent implements AfterViewInit {
+  @Input() item: any
+  constructor(private route: Router) { }
+  media: any
   ngAfterViewInit(): void {
-      this.media = JSON.parse( this.item.jobpost.job_detail.media)
-      console.log(this.media)
+    this.media = JSON.parse(this.item.jobpost.job_detail.media)
+    console.log(this.media)
   }
-  navigateTo(index:any){
- console.log(index,'kk')
-    this.route.navigate(['/service'],{queryParams: {service:"job", id: index}})
+  navigateTo(index: any) {
+    console.log(index, 'kk')
+    this.route.navigate(['/service'], {
+      queryParams: { job: index }
+    })
 
-}
+  }
 }

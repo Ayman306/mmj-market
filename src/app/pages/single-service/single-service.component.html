@@ -1,77 +1,77 @@
-<div class=" single_service_main">
+<div class="single_service_main">
   <div class="container">
-    @if (categorySlider.length>0  ) {
-  <div class="banner">
-    <app-slider [sliderItem]="categorySlider"></app-slider>
-  </div>
-}
-  <div class="business">
-    <div class="logo"  [class.noBanner]="categorySlider.length === 0">
-      <img src="../../../assets/mmj_logo.png" alt="" srcset="" class="w-100 h-100" width="100" height="100">
+    @if (categorySlider.length>0 ) {
+    <div class="banner">
+      <app-slider [sliderItem]="categorySlider"></app-slider>
     </div>
-    <div class="business_head card-setup" [class.noBanner]="categorySlider.length === 0">
-
-
-      <div class="business_title">
-<div class="title">
-
-
-  <h2>{{jobDetail?.title}}</h2>
-  <p class="company">{{jobDetail?.company_name}}</p>
-  <p class="sub-title">{{jobDetail?.tag_line}}</p>
-    <a [href]="contactDetail?.web_url" target="_blank" rel="noopener noreferrer"><i class="bi bi-globe"></i>&nbsp;{{contactDetail?.web_url}} </a>
-    <a [href]="contactDetail?.geo_location" target="_blank" rel="noopener noreferrer"><i class="bi bi-geo-alt-fill"></i>&nbsp;Direction</a>
-</div>
-@if (jobDetail?.apply_url) {
-<div class="titleBtn">
-  <button class="btn"><a [href]="jobDetail?.apply_url" target="_blank" rel="noopener noreferrer">Apply here</a> </button>
-</div>
-}
-
+    }
+    <div class="business">
+      <div class="logo" [class.noBanner]="categorySlider.length === 0">
+        <img src="../../../assets/mmj_logo.png" alt="" srcset=""
+          class="w-100 h-100" /><!-- chnaeg the image here LATER -->
+      </div>
+      <div class="business_head card-setup" [class.noBanner]="categorySlider.length === 0">
+        <div class="business_title">
+          <div class="title">
+            <h2>{{ jobDetail?.title }}</h2>
+            <p class="company">{{ jobDetail?.company_name }}</p>
+            <p class="sub-title">{{ jobDetail?.tag_line }}</p>
+            <a [href]="contactDetail?.web_url" target="_blank" rel="noopener noreferrer"><i
+                class="bi bi-globe"></i>&nbsp;{{ contactDetail?.web_url }}
+            </a>
+            <a [href]="contactDetail?.geo_location" target="_blank" rel="noopener noreferrer"><i
+                class="bi bi-geo-alt-fill"></i>&nbsp;Direction</a>
+          </div>
+          @if (jobDetail?.apply_url) {
+          <div class="titleBtn">
+            <button class="btn">
+              <a [href]="jobDetail?.apply_url" target="_blank" rel="noopener noreferrer">Apply here</a>
+            </button>
+          </div>
+          }
         </div>
         <div class="body_card">
           <div class="body_card_wrapper">
-            <p class="label">
-              Contact info
-            </p>
-              <a [href]="'mailto:'+ contactDetail?.email"><i class="bi bi-envelope-paper"></i>&nbsp; {{contactDetail?.email}}</a>
-              <a [href]="'tel:'+contactDetail?.primary_contact"><i class="bi bi-telephone-outbound"></i>&nbsp; {{contactDetail?.primary_contact}}</a>
-              <a [href]="'tel:'+contactDetail?.alternative_contact"><i class="bi bi-telephone-outbound"></i>&nbsp; {{contactDetail?.alternative_contact}}</a>
+            <p class="label">Contact info</p>
+            <a [href]="'mailto:' + contactDetail?.email"><i class="bi bi-envelope-paper"></i>&nbsp;
+              {{ contactDetail?.email }}</a>
+            <a [href]="'tel:' + contactDetail?.primary_contact"><i class="bi bi-telephone-outbound"></i>&nbsp;
+              {{ contactDetail?.primary_contact }}</a>
+            <a [href]="'tel:' + contactDetail?.alternative_contact"><i class="bi bi-telephone-outbound"></i>&nbsp;
+              {{ contactDetail?.alternative_contact }}</a>
           </div>
           <div class="body_card_wrapper">
             <p>
-              {{contactDetail?.address}}
+              {{ contactDetail?.address }}
             </p>
-            <p>{{contactDetail?.city}} {{contactDetail?.state}}</p>
-            <p>{{'pincode:'+ contactDetail?.pincode}} </p>
+            <p>{{ contactDetail?.city }} {{ contactDetail?.state }}</p>
+            <p>{{ "pincode:" + contactDetail?.pincode }}</p>
           </div>
-        <!-- </div> -->
+          <!-- </div> -->
+        </div>
       </div>
-    </div>
-@if (type !== 'job') {
-    <div class="business_service card-setup">
-      @for (item of businessImage; track $index) {
-      <div class="business_service_main">
+      @if (type !== 'job') {
+      <div class="business_service card-setup">
+        @for (item of businessImage; track $index) {
+        <div class="business_service_main">
+          <div class="icon">
+            <img src="../../../assets/icons/icons8-restaurant-50.png" alt="icon" srcset="" class="w-100 h-100" />
+          </div>
+          <div class="sub">
+            <p>Functions</p>
+          </div>
+        </div>
+        }
+      </div>
+      }
+      <div class="details">
+        <app-details-tab [details]="serviceDetail"></app-details-tab>
+      </div>
 
-      <div class="icon">
-        <img src="../../../assets/icons/icons8-restaurant-50.png" alt="icon" srcset="" class="w-100 h-100" >
-      </div>
-      <div class="sub">
-        <p>Functions</p>
-      </div>
-    </div>
-  }
-    </div>
-  }
-    <div class="details">
-      <app-details-tab [details]="masterData"></app-details-tab>
-    </div>
-
-    <!-- <div class="business_geo card-setup">
+      <!-- <div class="business_geo card-setup">
       <h2>Easy Navigate</h2>
     </div> -->
-
+    </div>
   </div>
-</div>
-<app-footer></app-footer>
+  <app-footer></app-footer>
 </div>
