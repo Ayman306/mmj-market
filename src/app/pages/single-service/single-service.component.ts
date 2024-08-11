@@ -88,4 +88,10 @@ export class SingleServiceComponent implements OnInit {
     }
     return chunks;
   }
+  openJob(url: string) {
+    if (url) {
+      const fullUrl = url.startsWith('http') ? url : 'http://' + url;
+      window.open(fullUrl, '_blank');
+    }
+  }
 }

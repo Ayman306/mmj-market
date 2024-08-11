@@ -24,8 +24,8 @@
           </div>
           @if (jobDetail?.apply_url) {
           <div class="titleBtn">
-            <button class="btn">
-              <a [href]="jobDetail?.apply_url" target="_blank" rel="noopener noreferrer">Apply here</a>
+            <button class="btn" (click)="openJob(jobDetail?.apply_url)">
+              Apply here
             </button>
           </div>
           }
