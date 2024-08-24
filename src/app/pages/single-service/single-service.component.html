@@ -1,16 +1,11 @@
 <div class="single_service_main">
   <div class="container">
-    @if (categorySlider.length>0 ) {
-    <div class="banner">
-      <app-slider [sliderItem]="categorySlider"></app-slider>
-    </div>
-    }
     <div class="business">
-      <div class="logo" [class.noBanner]="categorySlider.length === 0">
+      <div class="logo noBanner">
         <img src="../../../assets/mmj_logo.png" alt="" srcset=""
           class="w-100 h-100" /><!-- chnaeg the image here LATER -->
       </div>
-      <div class="business_head card-setup" [class.noBanner]="categorySlider.length === 0">
+      <div class="business_head card-setup noBanner">
         <div class="business_title">
           <div class="title">
             <h2>{{ jobDetail?.title }}</h2>
