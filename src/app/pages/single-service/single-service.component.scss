@@ -1,225 +1,140 @@
-@import '../../../assets/custom/__variable';
-.single_service_main{
-  background-color: $secondaary-bg-black;
-  .container{
-    a{
+@import "../../../assets/custom/__variable";
+.single_service_main {
+  // background-color: $secondaary-bg-black;
+  .container {
+    a {
       color: $primary-green;
       font-weight: bold;
       text-decoration: dotted;
       transition: 0.4s all ease-in-out;
-      &:hover{
+      &:hover {
         text-decoration: underline;
       }
     }
-    .banner{
-      height: 200px;
-      overflow: hidden;
-      @media (max-width:500px) {
-        height: auto;
-      }
-    }
-  .business{
-    position: relative;
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 10px;
-    .logo{
-      position: absolute;
-      top: -50px;
-      left: 20px;
-      width: 100px;
-      height: 100px;
-     overflow: hidden;
-    box-shadow: 1px 1px 4px 1px  $primary-yellow;
-     display: flex;
-  justify-content: center;
-  align-items: center;
-  background: $primary-white;
-  margin-bottom: 5px;
-  padding: 5px;
-     img{
-      object-fit: contain;
-      object-position: center;
-     }
-    }
-    .logo.noBanner{
-      top: 15px;
-    }
-    &_head{
+    .business {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      &_head {
+        border-top-left-radius: 0px;
+        border-top-right-radius: 0px;
+        background-color: $primary-white;
+        padding: 20px;
+        border-radius: 20px;
+        margin-top: 10px;
+          box-shadow: 0.2px 0.2px 5px 2px rgb(238, 238, 238);
 
-      border-top-left-radius: 0px;
-      border-top-right-radius: 0px;
-      padding-top: 80px;
-      .business_title{
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 10px;
-        .titleBtn{
+
+        .business_info {
           display: flex;
-          align-items: flex-end;
-          button{
-            margin-left: 10px;
-            background-color: $primary-green;
-            color: $primary-white;
-            border: none;
-            padding: 5px 10px;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: 0.3s all ease-in-out;
-            &:hover{
-              box-shadow:0.2px 0.2px 5px $primary-yellow;
-            }
-            a{
-              color: $primary-white;
-              font-weight: normal;
-            }
-          }
-        }
-        @media (max-width:480px) {
-          display: block;
-          button{
+          align-items: center;
+          .logo {
+            width: 100px;
+            height: 100px;
+            overflow: hidden;
+            box-shadow: 1px 1px 4px 1px $primary-yellow;
+            background: $primary-white;
+            margin-bottom: 5px;
             padding: 5px;
-            font-size: 12px;
+            img {
+              object-fit: contain;
+              object-position: center;
+            }
+          }
+
+          .business_title {
+            display: flex;
+            .titleBtn {
+              button {
+                margin-left: 10px;
+                background-color: $primary-green;
+                color: $primary-white;
+                border: none;
+                padding: 5px 10px;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: 0.3s all ease-in-out;
+                &:hover {
+                  box-shadow: 0.2px 0.2px 5px $primary-yellow;
+                }
+                a {
+                  color: $primary-white;
+                  font-weight: normal;
+                }
+              }
+            }
+
+            @media (max-width: 480px) {
+              display: block;
+              button {
+                padding: 5px;
+              }
+            }
+            .title {
+              display: grid;
+              grid-template-columns: 1fr;
+              gap: 5px;
+              margin-bottom: 8px;
+              h2 {
+                text-transform: capitalize;
+                margin: 0;
+              }
+              p {
+                font-size: 14px;
+              }
+              .company {
+                font-size: 18px;
+                font-weight: bold;
+              }
+            }
+          }
+
+          @media (max-width:780px) {
+            align-items: start;
+    flex-direction: column;
+    gap: 20px;
           }
         }
-      .title{
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 5px;
-        margin-bottom: 8px;
-        h2{
-          text-transform: capitalize;
-          margin:0;
+        .body_card {
+          width: 100%;
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 20px;
+          &_wrapper {
+            box-shadow: 1px 1px 0.2px 0.5px $primary-yellow;
+            border-radius: 10px;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-gap: 8px;
+          }
         }
-        p{
+        .label {
           font-size: 14px;
         }
-        .company{
-          font-size: 18px;
-          font-weight: bold;
+      }
+
+      @media (max-width: 480px) {
+        .logo {
+          width: 80px;
+          height: 80px;
         }
-      }
-    }
-      .body_card{
-        width: 100%;
-        // margin-top: 10px;
-
-
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        // justify-content: center;
-        gap: 20px;
-        &_wrapper{
-           box-shadow: 0.2px 0.2px 0.2px 0.5px  $primary-yellow;
-        border-radius: 10px;
-          padding: 20px;
-          display: grid;
-          grid-template-columns: 1fr;
-          grid-gap:3px
-        }
-
-      }
-      .label{
-        font-size: 14px;
-      }
-    }
-    &_head.noBanner{
-      padding-top: 8rem;
-    }
-    &_service{
-      flex-wrap: nowrap;
-      overflow: auto;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: row;
-      gap: clamp(20px, 10vw, 50px);
-      flex-wrap: wrap;
-      &_main{
-        // display: flex;
-
-        .icon{
-          width: 50px;
-          height: 50px;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          border-radius: 50%;
-          border: 0.2px solid $primary-yellow;
-          img{
-            object-fit: contain;
-            object-position: center;
+        &_head {
+          .body_card {
+            gap: 5px;
+            grid-template-columns: 1fr;
+            div {
+              padding: 9px;
+            }
           }
         }
-        .sub{
-          p{
-            font-size: 12px;
-            text-align: center;
+        &_body {
+          .body_card {
+            grid-template-columns: 1fr;
           }
         }
       }
-    }
-    &_image{
-
-      padding: 20px;
-      .gallery{
-        padding: 5px;
-        display: none;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        grid-gap: 15px;
-        // grid-auto-flow: row;
-
-
-        .gallery__item {
-          position: relative;
-        }
-
-        .gallery__img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          // display: block;
-
-      }
-      }
-      .carousel-item.active{
-        display: flex;
-        justify-content: center;
-        flex-direction: row;
-      }
-    }
-    @media (max-width:480px) {
-     .logo{
-       width: 80px;
-      height: 80px;
-     }
-     &_head{
-      padding-top: 50px;
-      p{
-        font-size: 12px !important;
-      }
-      a{
-        font-size: 12px !important;
-      }
-      .body_card{
-        gap: 5px;
-        grid-template-columns: 1fr;
-        div{
-          padding: 9px;
-        }
-      }
-     }
-     &_body{
-      .body_card{
-        grid-template-columns: 1fr;
-      }
-     }
     }
   }
-}
-}
-.card-setup{
-  background-color: $primary-white;
-  padding: 20px;
-  border-radius: 20px;
 }

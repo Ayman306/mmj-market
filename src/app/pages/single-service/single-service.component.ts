@@ -3,14 +3,14 @@ import { SliderComponent } from '../../shared/components/slider/slider.component
 import { EnquiryFormComponent } from '../../shared/components/enquiry-form/enquiry-form.component';
 import { FooterComponent } from '../../shared/components/footer/footer.component';
 import { DetailsTabComponent } from '../../shared/components/details-tab/details-tab.component';
-import { NgOptimizedImage } from '@angular/common';
+import { NgOptimizedImage, TitleCasePipe } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { ApiService } from '../../shared/service/api.service';
 
 @Component({
   selector: 'app-single-service',
   standalone: true,
-  imports: [SliderComponent, EnquiryFormComponent, FooterComponent, DetailsTabComponent, NgOptimizedImage],
+  imports: [FooterComponent, DetailsTabComponent, TitleCasePipe],
   templateUrl: './single-service.component.html',
   styleUrl: './single-service.component.scss'
 })
@@ -20,26 +20,11 @@ export class SingleServiceComponent implements OnInit {
   categorySlider = [
     { src: '../../../assets/images/force-majeure-00tlC0Clfrs-unsplash.jpg', alt: 'Slide 1' }
   ]
-  businessImage = [
-    {
-      src: '../../../assets/images/force-majeure-00tlC0Clfrs-unsplash.jpg'
-    },
-    {
-      src: '../../../assets/images/martin-pechy-Rp2fQv6AM44-unsplash.jpg'
-    },
-    {
-      src: '../../../assets/images/redcharlie-mugDbuNnbd0-unsplash.jpg'
-    }
-    ,
-    {
-      src: '../../../assets/images/redcharlie-mugDbuNnbd0-unsplash.jpg'
-    },
-    {
-      src: '../../../assets/images/martin-pechy-Rp2fQv6AM44-unsplash.jpg'
-    }, {
-      src: '../../../assets/images/force-majeure-00tlC0Clfrs-unsplash.jpg'
-    }
+  logo = ['hello']
+  tab = [
+    'Overview'
   ]
+
   slides: any[][] = [];
   type = "job"
   serviceId = ""
@@ -47,7 +32,7 @@ export class SingleServiceComponent implements OnInit {
   contactDetail: any
   serviceDetail: any
   ngOnInit(): void {
-    this.slides = this.chunk(this.businessImage, 2);
+    // this.slides = this.chunk(this.businessImage, 2);
     let service: any
     this.route.queryParamMap.subscribe(params => {
       const serviceQueryParam = params?.get('service');
@@ -81,13 +66,13 @@ export class SingleServiceComponent implements OnInit {
     }
   }
 
-  chunk(arr: any[], size: number): any[][] {
-    const chunks = [];
-    for (let i = 0; i < arr.length; i += size) {
-      chunks.push(arr.slice(i, i + size));
-    }
-    return chunks;
-  }
+  // chunk(arr: any[], size: number): any[][] {
+  //   const chunks = [];
+  //   for (let i = 0; i < arr.length; i += size) {
+  //     chunks.push(arr.slice(i, i + size));
+  //   }
+  //   return chunks;
+  // }
   openJob(url: string) {
     if (url) {
       const fullUrl = url.startsWith('http') ? url : 'http://' + url;

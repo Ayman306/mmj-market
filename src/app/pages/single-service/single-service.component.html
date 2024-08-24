@@ -1,30 +1,37 @@
 <div class="single_service_main">
   <div class="container">
     <div class="business">
-      <div class="logo noBanner">
-        <img src="../../../assets/mmj_logo.png" alt="" srcset=""
-          class="w-100 h-100" /><!-- chnaeg the image here LATER -->
-      </div>
-      <div class="business_head card-setup noBanner">
-        <div class="business_title">
+      <div class="business_head ">
+      
+        <div class="business_info justify-content-around flex-wrap " [class.flex-column]="logo.length ==0"
+          [class.d-block]="logo.length ==0">
+          @if (logo) {
+          <div class="logo ">
+            <img src="../../../assets/mmj_logo.png" alt="" srcset=""
+              class="w-100 h-100" /><!-- chnaeg the image here LATER -->
+          </div>
+        }
+        <div class="business_title justify-content-between mb-3" [class.d-block]="logo.length ==0">
           <div class="title">
-            <h2>{{ jobDetail?.title }}</h2>
-            <p class="company">{{ jobDetail?.company_name }}</p>
+            <h2>{{ jobDetail?.title | titlecase }}</h2>
+            <p class="company">{{ jobDetail?.company_name |titlecase}}</p>
             <p class="sub-title">{{ jobDetail?.tag_line }}</p>
             <a [href]="contactDetail?.web_url" target="_blank" rel="noopener noreferrer"><i
                 class="bi bi-globe"></i>&nbsp;{{ contactDetail?.web_url }}
             </a>
             <a [href]="contactDetail?.geo_location" target="_blank" rel="noopener noreferrer"><i
                 class="bi bi-geo-alt-fill"></i>&nbsp;Direction</a>
-          </div>
-          @if (jobDetail?.apply_url) {
-          <div class="titleBtn">
-            <button class="btn" (click)="openJob(jobDetail?.apply_url)">
-              Apply here
-            </button>
-          </div>
-          }
+                @if (jobDetail?.apply_url) {
+                <div class="titleBtn ">
+                  <button class="btn" (click)="openJob(jobDetail?.apply_url)">
+                    Apply here
+                  </button>
+                </div>
+                }
+                </div>
         </div>
+        </div>
+
         <div class="body_card">
           <div class="body_card_wrapper">
             <p class="label">Contact info</p>
@@ -45,27 +52,11 @@
           <!-- </div> -->
         </div>
       </div>
-      @if (type !== 'job') {
-      <div class="business_service card-setup">
-        @for (item of businessImage; track $index) {
-        <div class="business_service_main">
-          <div class="icon">
-            <img src="../../../assets/icons/icons8-restaurant-50.png" alt="icon" srcset="" class="w-100 h-100" />
-          </div>
-          <div class="sub">
-            <p>Functions</p>
-          </div>
-        </div>
-        }
-      </div>
-      }
+
       <div class="details">
-        <app-details-tab [details]="serviceDetail"></app-details-tab>
+        <app-details-tab [details]="serviceDetail" [tabs]="tab"></app-details-tab>
       </div>
 
-      <!-- <div class="business_geo card-setup">
-      <h2>Easy Navigate</h2>
-    </div> -->
     </div>
   </div>
   <app-footer></app-footer>

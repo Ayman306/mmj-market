@@ -1,5 +1,5 @@
 import { NgOptimizedImage, TitleCasePipe } from '@angular/common';
-import { Component, Input, OnInit } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
 import { Lightbox, LightboxConfig, LightboxModule } from 'ngx-lightbox';
 
 @Component({
@@ -9,9 +9,11 @@ import { Lightbox, LightboxConfig, LightboxModule } from 'ngx-lightbox';
   templateUrl: './details-tab.component.html',
   styleUrl: './details-tab.component.scss'
 })
-export class DetailsTabComponent implements OnInit{
+export class DetailsTabComponent implements OnInit, AfterViewInit {
   @Input() details:any
-  constructor(private _lightbox: Lightbox, private _lightboxConfig: LightboxConfig){
+  @Input() tabs: any
+  active = ''
+  constructor(private _lightbox: Lightbox, private _lightboxConfig: LightboxConfig, private cdr: ChangeDetectorRef) {
     this._lightboxConfig.fadeDuration = 1;
     this._lightboxConfig.disableScrolling = true;
     this._lightboxConfig.centerVertically=true
@@ -22,16 +24,19 @@ export class DetailsTabComponent implements OnInit{
 
 
   }
+  ngAfterViewInit(): void {
+    console.log(this.tabs, 'tabs');
+    if (this.tabs.length) {
+      this.active = this.tabs[0]
+      this.cdr.detectChanges(); // Trigger change detection
+    }
+
+  }
   ngOnInit(): void {
     this.loadAlbum()
 
   }
-tabs =[
-  'Overview',
-  'Photos',
-  'About'
-]
-active=this.tabs[0]
+
 
 imageList=[
   {
