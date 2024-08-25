@@ -3,6 +3,8 @@
 .main {
   height: 90vh;
   overflow: auto;
+      background: rgb(246, 246, 246);
+    background: linear-gradient(0deg, #efefef 0%, #fff 100%);
 
   .jobs {
     width: 90%;
