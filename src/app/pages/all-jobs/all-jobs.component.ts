@@ -53,18 +53,7 @@ export class AllJobsComponent implements OnInit {
       })))
     );
   }
-  jobDetail(id?: string) {
-    if (id) {
-      this.route.navigate(['/service'], {
-        queryParams: { job: id }
-      });
-    } else {
-      this.route.navigate(['/all-service'], {
-        queryParams: { job: 'all-job' }
-      });
 
-    }
-  }
 
   onSearch(event: any) {
     const searchText = event.target.value;

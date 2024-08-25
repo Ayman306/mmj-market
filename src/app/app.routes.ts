@@ -26,7 +26,7 @@ export const routes: Routes = [
       ),
   },
   {
-    path: 'service',
+    path: 'job-detail',
     loadComponent: () =>
       import('./pages/job_detail/job-detail.component').then(
         (c) => c.JobDetailComponent

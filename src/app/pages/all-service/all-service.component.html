@@ -4,24 +4,10 @@
     <h2 class="head">{{categoryType?.type | titlecase}} picks for you</h2>
     <div class="service">
 
-      @switch (categoryType?.type) {
-      @case('restraunt'){
       @for (item of banner; track $index) {
       <app-servicecard [item]="item"></app-servicecard>
       } @empty {
       <p>No banner available</p>
-      }
-      }
-
-      @case('job'){
-      <div class="job">
-        @for (item of service; track $index) {
-        <app-jobcard [item]="item"></app-jobcard>
-        }@empty {
-        <p>{{categoryType?.name | titlecase}} available soon!</p>
-        }
-      </div>
-      }
       }
     </div>
   </div>

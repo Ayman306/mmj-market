@@ -50,24 +50,16 @@ export class AllServiceComponent implements OnInit {
     let serviceType: any
     this.route.queryParamMap.subscribe((params) => {
       const serviceQueryParam = params?.get('service');
-      const jobQueryParam = params?.get('job');
 
-      if (serviceQueryParam) {
-        serviceType = { id: serviceQueryParam || '', type: 'business' };
-      } else if (jobQueryParam) {
-        this.categoryType = serviceType = { type: 'job' };
-      }
+      serviceType = { id: serviceQueryParam || '' };
     });
     this.getAllservices(serviceType);
   }
-  getAllservices(serviceType?: { id?: string, type: string }) {
-    switch (serviceType?.type) {
-      case 'job':
+  getAllservices(serviceType?: { id: string }) {
 
-    }
-    // });
+
   }
   navigateTo(index: any) {
-    this.router.navigate(['/service'], { queryParams: { service: index } });
+    this.router.navigate(['/service'], { queryParams: index });
   }
 }

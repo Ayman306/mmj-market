@@ -20,7 +20,7 @@ export class JobcardComponent implements AfterViewInit {
   }
   navigateTo(index: any) {
     console.log(index, 'kk')
-    this.route.navigate(['/service'], {
+    this.route.navigate(['/job-detail'], {
       queryParams: { job: index }
     })
 
