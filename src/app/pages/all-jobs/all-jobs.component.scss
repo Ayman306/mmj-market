@@ -93,9 +93,9 @@
         cursor: pointer;
         border: 1px solid #ebebef;
         border-radius: 0px;
-        background-color: $primary-green;
+        background-color: $secondary-green;
         .dropdown-toggle{
-        padding: 10px 22px;
+        // padding: 10px 22px;
           color: white;
           &:focus,
           &:active,
@@ -114,6 +114,12 @@
   .joblist {
     width: 90%;
     margin: auto;
+    .empty{
+      .empty_img{
+           max-width: 400px;
+    margin: auto;
+      }
+    }
   }
 
   // .view-all {

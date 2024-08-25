@@ -16,9 +16,10 @@
     <!-- Example single danger button -->
     <!-- <div class="btn-group"> -->
     <div class="dropdown ">
-      <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown"
+      <button class="btn dropdown-toggle search-button w-button" type="button" id="dropdownMenuButton"
+        data-bs-toggle="dropdown"
         aria-expanded="false">
-        FILTER JOBS <i class="bi bi-chevron-down"></i>
+        Filter jobs <i class="bi bi-chevron-down"></i>
       </button>
       <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
         @for (option of options; track $index) {
@@ -28,17 +29,24 @@
         }
       </ul>
     </div>
-  
+
   </div>
   <!-- </div> -->
   </div>
   <div class="joblist">
     @for (item of jobPost$ | async; track $index) {
     <app-jobcard [item]="item"></app-jobcard>
-    }
-    <div class="view-all">
-      <button class="btn" (click)="jobDetail()">View all jobs</button>
+    } @empty {
+    <div class="empty">
+      <div class="empty_img">
+        <img src="../../../assets/images/undraw_not_found_re_bh2e.svg" alt="" srcset="" class="w-100 h-100">
+      </div>
+      <p class="text-center">Update filter for the jobs 👍</p>
     </div>
+    }
+    <!-- <div class="view-all">
+      <button class="btn" (click)="jobDetail()">View all jobs</button>
+    </div> -->
   </div>
 
   <section class="feature_two">
