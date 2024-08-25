@@ -8,13 +8,13 @@ import { ActivatedRoute } from '@angular/router';
 import { ApiService } from '../../shared/service/api.service';
 
 @Component({
-  selector: 'app-single-service',
+  selector: 'job-detail',
   standalone: true,
   imports: [FooterComponent, DetailsTabComponent, TitleCasePipe],
-  templateUrl: './single-service.component.html',
-  styleUrl: './single-service.component.scss'
+  templateUrl: './job-detail.component.html',
+  styleUrl: './job-detail.component.scss'
 })
-export class SingleServiceComponent implements OnInit {
+export class JobDetailComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private apiService: ApiService) { }
   categorySlider = [

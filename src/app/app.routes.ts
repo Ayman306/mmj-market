@@ -28,8 +28,8 @@ export const routes: Routes = [
   {
     path: 'service',
     loadComponent: () =>
-      import('./pages/single-service/single-service.component').then(
-        (c) => c.SingleServiceComponent
+      import('./pages/job_detail/job-detail.component').then(
+        (c) => c.JobDetailComponent
       ),
   },
 ];
