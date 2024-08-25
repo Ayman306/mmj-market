@@ -63,12 +63,7 @@ export class AllServiceComponent implements OnInit {
   getAllservices(serviceType?: { id?: string, type: string }) {
     switch (serviceType?.type) {
       case 'job':
-        {
-          this.apiService.getAllJobs().subscribe((res) => {
-            this.service = res?.result;
-          });
-        }
-        break;
+
     }
     // });
   }

@@ -13,10 +13,11 @@ export class ApiService {
     return this.http.post<any>(`${this.apiUrl}/category`, id);
   }
 
-  getAllJobs(id?: any) {
+  getAllJobs(data?: any) {
     const body = {
-      id, status: true
+      status: true
     }
-    return this.http.post<any>(`${this.apiUrl}/job`, body);
+    data = { ...body, ...data }
+    return this.http.post<any>(`${this.apiUrl}/job`, data);
   }
 }

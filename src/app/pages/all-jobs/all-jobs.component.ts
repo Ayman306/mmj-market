@@ -22,17 +22,30 @@ export class AllJobsComponent implements OnInit {
   private searchSubject: Subject<string> = new Subject();
   options = [
     { label: 'Anytime', value: 'anytime' },
-    { label: 'Past 24 hours', value: 'new' },
-    { label: 'Past weeek', value: 'past_week' },
-    { label: 'Past month', value: 'past_month' },
+    { label: 'Past 24 hours', value: '24 hours' },
+    { label: 'Past weeek', value: 'week' },
+    { label: 'Past month', value: 'month' },
   ];
+  filterOption = {
+    search: '',
+    filter: ''
+  }
+  sortJobBy: string = '';
 
   ngOnInit(): void {
     this.searchSubject.pipe(debounceTime(500)).subscribe((searchText) => {
       this.logSearch(searchText);
     });
 
-    this.jobPost$ = this._apiService.getAllJobs().pipe(
+    this.getAllJobs()
+  }
+
+  socials = this.shared.socialIcons
+
+  features = this.shared.jobFeatures
+
+  getAllJobs(data?: {}) {
+    this.jobPost$ = this._apiService.getAllJobs(data).pipe(
       map((response: any) => response?.result?.map((res: any) => ({
         ...res.jobpost.contact_detail,
         ...res.jobpost.job_detail,
@@ -40,11 +53,6 @@ export class AllJobsComponent implements OnInit {
       })))
     );
   }
-
-  socials = this.shared.socialIcons
-
-  features = this.shared.jobFeatures
-
   jobDetail(id?: string) {
     if (id) {
       this.route.navigate(['/service'], {
@@ -65,11 +73,14 @@ export class AllJobsComponent implements OnInit {
 
   logSearch(searchText: string) {
     console.log('Searched text:', searchText);
+    this.filterOption.search = searchText;
+    this.getAllJobs(this.filterOption)
   }
-  selectedValue: string = '';
 
   onSelect(option: any) {
-    this.selectedValue = option.value;
-    console.log('Selected value:', this.selectedValue);
+    this.sortJobBy = option.value;
+    this.filterOption.filter = option.value;
+    this.getAllJobs(this.filterOption)
+    console.log('Selected value:', this.sortJobBy);
   }
 }
