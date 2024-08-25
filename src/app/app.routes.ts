@@ -14,7 +14,7 @@ export const routes: Routes = [
   {
     path: 'jobs',
     loadComponent: () =>
-      import('./pages/all-jobs/all-jobs.component').then(
+      import('./pages/job/all-jobs/all-jobs.component').then(
         (c) => c.AllJobsComponent
       ),
   },
@@ -28,7 +28,7 @@ export const routes: Routes = [
   {
     path: 'job-detail',
     loadComponent: () =>
-      import('./pages/job_detail/job-detail.component').then(
+      import('./pages/job/job_detail/job-detail.component').then(
         (c) => c.JobDetailComponent
       ),
   },

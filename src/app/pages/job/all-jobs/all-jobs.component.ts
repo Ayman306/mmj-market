@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from '../../shared/service/api.service';
+import { ApiService } from '../../../shared/service/api.service';
 import { Observable, Subject } from 'rxjs';
 import { debounceTime, map } from 'rxjs/operators';
 import { AsyncPipe, TitleCasePipe, UpperCasePipe } from '@angular/common';
 import { Router } from '@angular/router';
-import { SharedService } from '../../shared/service/shared.service';
-import { TimeAgoPipe } from '../../utils/time-ago.pipe';
-import { JobcardComponent } from '../../shared/components/jobcard/jobcard.component';
+import { SharedService } from '../../../shared/service/shared.service';
+import { TimeAgoPipe } from '../../../utils/time-ago.pipe';
+import { JobcardComponent } from '../../../shared/components/jobcard/jobcard.component';
 import { FormsModule } from '@angular/forms';
 
 @Component({

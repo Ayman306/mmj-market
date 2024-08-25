@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { SliderComponent } from '../../shared/components/slider/slider.component';
-import { EnquiryFormComponent } from '../../shared/components/enquiry-form/enquiry-form.component';
-import { FooterComponent } from '../../shared/components/footer/footer.component';
-import { DetailsTabComponent } from '../../shared/components/details-tab/details-tab.component';
+import { SliderComponent } from '../../../shared/components/slider/slider.component';
+import { EnquiryFormComponent } from '../../../shared/components/enquiry-form/enquiry-form.component';
+import { FooterComponent } from '../../../shared/components/footer/footer.component';
+import { DetailsTabComponent } from '../../../shared/components/details-tab/details-tab.component';
 import { NgOptimizedImage, TitleCasePipe } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
-import { ApiService } from '../../shared/service/api.service';
+import { ApiService } from '../../../shared/service/api.service';
 
 @Component({
   selector: 'job-detail',
