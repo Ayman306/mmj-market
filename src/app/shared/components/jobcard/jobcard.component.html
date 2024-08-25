@@ -1,28 +1,34 @@
-<div class="job_main" (click)="navigateTo(item?.jobpost?.job_detail?.id)">
-  <div class="content">
-    <div class="head d-flex justify-content-between align-items-center">
-      <h1 class="title">{{item?.jobpost?.job_detail?.title}}</h1>
-      <i class="bi bi-arrow-up-right-circle-fill"></i>
-    </div>
-    <div class="d-flex gap-1 flex-wrap">
-      <p class="chip">Junior</p>
-      <p class="chip">{{item?.jobpost?.job_detail?.employment_type}}</p>
-    </div>
-  </div>
-
-  <h2 class="salary">{{item?.jobpost?.job_detail?.salary_range}}</h2>
-  <div class="line"></div>
-  <div class="company d-flex  ">
-    <div class="icon">
-      <img src="../../../../assets/mmj_logo.png" alt="" srcset="" class="w-100 h-100">
-    </div>
-    <div class="detail">
-      <h2 class="comp_name">
-        {{item?.jobpost?.job_detail?.company_name}}
-      </h2>
-      <p class="location">
-        {{item?.jobpost?.contact_detail?.city}}
+<div class="job-item" (click)="navigateTo(item?.jobpost_id)">
+  <div class="liner-border two"></div>
+  <div class="job-title-wrap">
+    <div class="d-flex align-items-center gap-4">
+      <div class="job-image-wrap">
+        <img [src]="item?.logo" alt="" srcset="" class="w-100 h-100" />
+        <!-- chnaeg the image here LATER -->
+      </div>
+      <div>
+        <h3 class="job-title mb-0">{{ item?.title | titlecase }}</h3>
+        <p>{{ item?.created_date | timeAgo }}</p>
+      </div>
+      </div>
+    <div class="head">
+      <p class="fw-bold">
+        <span class="chips bg-white p-2"><i class="bi bi-briefcase"></i> </span>
+        {{ item?.company_name | titlecase }}
       </p>
     </div>
+    <div class="job-detail">
+      <p class="chips">
+        <i class="bi bi-geo-alt"></i>
+        {{ item?.city | titlecase }}
+      </p>
+      <p class="chips">
+        <i class="bi bi-clock-history"></i>
+        {{ item?.employment_type | titlecase }}
+      </p>
+    </div>
+  </div>
+  <div class="navigate">
+    <i class="bi bi-arrow-up-right-circle-fill"></i>
   </div>
 </div>

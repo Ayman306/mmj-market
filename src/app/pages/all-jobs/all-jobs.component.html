@@ -2,38 +2,13 @@
 
   <div class="jobs">
     <div class="head">
-      <h1 class="title">Find your favourite job</h1>
+      <h1 class="title">{{'Find your favourite job' | uppercase}}</h1>
     </div>
     <!-- <img src="../../../assets/memoji/memoji-thumsup.png" alt="" srcset=""> -->
   </div>
   <div class="joblist">
     @for (item of jobPost$ | async; track $index) {
-    <div class="job-item" (click)="jobDetail(item?.jobpost_id)">
-      <div class="liner-border two"></div>
-      <div class="job-title-wrap">
-        <div class="job-image-wrap">
-          <img [src]="item?.logo" alt="" srcset="" class="w-100 h-100"> <!-- chnaeg the image here LATER -->
-        </div>
-        <div>
-          <h3 class="job-title">{{item?.title | titlecase}}</h3>
-          <div class="job-detail">
-            <div class="job-desc-item">
-            <i class="bi bi-geo-alt"></i>
-              <div>{{item?.city}}</div>
-            </div>
-            <div class="job-desc-item"><i class="bi bi-briefcase"></i>
-              <div>{{item?.company_name}}</div>
-            </div>
-            <div class="job-desc-item"><i class="bi bi-clock"></i>
-              <div>{{item?.employment_type}}</div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="button-primary">
-        View details
-      </div>
-    </div>
+    <app-jobcard [item]="item"></app-jobcard>
     }
     <div class="view-all">
       <button class="btn" (click)="jobDetail()">View all jobs</button>
@@ -58,7 +33,6 @@
       <div class="card-wrapper">
         @for (feature of features; track $index) {
         <div class="card-main">
-          <!-- <div class="icon"></div> -->
           <div class="content">
             <h3 class="title">{{feature?.title}}</h3>
             <p class="subtitle">{{feature?.description}}</p>

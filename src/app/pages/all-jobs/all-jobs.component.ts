@@ -2,14 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../shared/service/api.service';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { AsyncPipe, TitleCasePipe } from '@angular/common';
+import { AsyncPipe, TitleCasePipe, UpperCasePipe } from '@angular/common';
 import { Router } from '@angular/router';
 import { SharedService } from '../../shared/service/shared.service';
+import { TimeAgoPipe } from '../../utils/time-ago.pipe';
+import { JobcardComponent } from '../../shared/components/jobcard/jobcard.component';
 
 @Component({
   selector: 'app-all-jobs',
   standalone: true,
-  imports: [AsyncPipe, TitleCasePipe],
+  imports: [AsyncPipe, JobcardComponent, UpperCasePipe],
   templateUrl: './all-jobs.component.html',
   styleUrl: './all-jobs.component.scss',
 })
