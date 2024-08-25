@@ -27,7 +27,7 @@ export class AppComponent implements OnInit {
       });
   }
 
-  navigateTo() {
-    this.route.navigate(['/home']);
+  navigateTo(route: string) {
+    this.route.navigate([`/${route}`]);
   }
 }

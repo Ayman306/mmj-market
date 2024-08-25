@@ -28,6 +28,53 @@ nav {
       cursor: pointer
     }
   }
+//   .postBtn{
+//     /* From https://css.glass */
+// background: #005f5fd7;
+// border-radius: 7px;
+// box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+// backdrop-filter: blur(7.9px);
+// -webkit-backdrop-filter: blur(7.9px);
+// border: 1px solid $secondary-green;
+// color: $primary-white;
+// font-size: clamp(0.875rem, 0.4063rem + 1.5vw, 1.25rem);
+//   }
+
+.shine-button {
+  position: relative;
+  padding: 10px 20px;
+  border: none;
+  background-color: $primary-green;
+  color: white;
+  font-size: 16px;
+  border-radius: 2px;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
+  box-shadow: 0.2px 0.2px 1px 2px rgb(199, 199, 199);
+}
+
+.shine-button::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: rotate(45deg);
+  animation: shine-animation 2s infinite;
+}
+
+@keyframes shine-animation {
+  0% {
+    transform: rotate(0deg) translate(-100%, -100%);
+  }
+  100% {
+    transform: rotate(0deg) translate(100%, 100%);
+  }
+}
+
 
   @media (max-width:480px) {
     .whatsapp {

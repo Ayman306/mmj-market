@@ -1,6 +1,12 @@
 <nav>
   <div class="logo p-2">
-    <img ngSrc="../assets/mmj_logo.png" alt="mmj_logo" srcset="" class="w-100 h-100 " (click)="navigateTo()" width="100" height="100" priority>
+    <img ngSrc="../assets/mmj_logo.png" alt="mmj_logo" srcset="" class="w-100 h-100 " (click)="navigateTo('home')"
+      width="100" height="100" priority>
+    </div>
+    <div class="job">
+      <button class="btn postBtn shine-button" (click)="navigateTo('job-post')">
+        Post Jobs
+      </button>
   </div>
 </nav>
 <div class="body_main">
