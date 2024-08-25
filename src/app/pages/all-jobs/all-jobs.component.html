@@ -4,7 +4,33 @@
     <div class="head">
       <h1 class="title">{{'Find your favourite job' | uppercase}}</h1>
     </div>
-    <!-- <img src="../../../assets/memoji/memoji-thumsup.png" alt="" srcset=""> -->
+  <div class="search m-auto mb-2">
+    <div class="search-input-wrapper">
+      <i class="bi bi-search icon-regular"></i>
+      <input class="search-field w-input mb-0" maxlength="256" placeholder="Search…" type="search" id="search"
+        (input)="onSearch($event)">
+    </div>
+    <button type="submit" class="btn search-button w-button" (click)="onSearch($event)">Search</button>
+  </div>
+  <div class="filter mb-2">
+    <!-- Example single danger button -->
+    <!-- <div class="btn-group"> -->
+    <div class="dropdown ">
+      <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown"
+        aria-expanded="false">
+        FILTER JOBS <i class="bi bi-chevron-down"></i>
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        @for (option of options; track $index) {
+        <li>
+          <a class="dropdown-item" (click)="onSelect(option)">{{ option.label }}</a>
+        </li>
+        }
+      </ul>
+    </div>
+  
+  </div>
+  <!-- </div> -->
   </div>
   <div class="joblist">
     @for (item of jobPost$ | async; track $index) {
