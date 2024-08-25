@@ -2,7 +2,6 @@
   <div class="container">
     <div class="business">
       <div class="business_head ">
-      
         <div class="business_info justify-content-around flex-wrap " [class.flex-column]="logo.length ==0"
           [class.d-block]="logo.length ==0">
           @if (logo) {
@@ -10,37 +9,68 @@
             <img src="../../../assets/mmj_logo.png" alt="" srcset=""
               class="w-100 h-100" /><!-- chnaeg the image here LATER -->
           </div>
-        }
-        <div class="business_title justify-content-between mb-3" [class.d-block]="logo.length ==0">
-          <div class="title">
-            <h2>{{ jobDetail?.title | titlecase }}</h2>
-            <p class="company">{{ jobDetail?.company_name |titlecase}}</p>
-            <p class="sub-title">{{ jobDetail?.tag_line }}</p>
-            <a [href]="contactDetail?.web_url" target="_blank" rel="noopener noreferrer"><i
-                class="bi bi-globe"></i>&nbsp;{{ contactDetail?.web_url }}
-            </a>
-            <a [href]="contactDetail?.geo_location" target="_blank" rel="noopener noreferrer"><i
-                class="bi bi-geo-alt-fill"></i>&nbsp;Direction</a>
-                @if (jobDetail?.apply_url) {
-                <div class="titleBtn ">
-                  <button class="btn" (click)="openJob(jobDetail?.apply_url)">
-                    Apply here
-                  </button>
+          }
+          <div class="business_title justify-content-between mb-3" [class.d-block]="logo.length ==0">
+            <div class="title">
+              <h2>{{ jobDetail?.title | titlecase }}</h2>
+              <p class="company">{{ jobDetail?.company_name |titlecase}}</p>
+              @if (jobDetail?.tag_line) {
+              <p class="sub-title">{{ jobDetail?.tag_line }}</p>
+              }
+              @if(contactDetail?.web_url){
+              <a [href]="contactDetail?.web_url" target="_blank" rel="noopener noreferrer"><i
+                  class="bi bi-globe"></i>&nbsp;{{
+                contactDetail?.web_url }}
+              </a>
+              }
+              <!-- <a [href]="contactDetail?.geo_location" target="_blank" rel="noopener noreferrer"><i class="bi bi-geo-alt-fill"></i>&nbsp;Direction</a> -->
+              @if (jobDetail?.description) {
+              <div class="description">
+                <p class="head fw-bold">Description</p>
+                <p class="contact">
+                  {{jobDetail?.description}}
+                </p>
+              </div>
+              }
+              <div class="description ">
+                <p class="head fw-bold text-capitalize">Contact recruiter</p>
+                <div class="contact d-flex p-2 gap-4">
+                  @if (contactDetail?.wa_number) {
+                  <a [href]="'https://wa.me/'+contactDetail?.wa_number" target="_blank" rel="noopener noreferrer">
+                    <i class="bi bi-whatsapp"></i>
+                  </a>
+                  }
+                  @if (contactDetail?.primary_contact) {
+                  <a [href]="'tel:'+contactDetail?.primary_contact" target="_blank" rel="noopener noreferrer">
+                    <i class="bi bi-telephone-outbound"></i>
+                  </a>
+                  }
+                  @if (contactDetail?.web_url) {
+                  <a [href]="contactDetail?.web_url" target="_blank" rel="noopener noreferrer">
+                    <i class="bi bi-globe-americas"></i>
+                  </a>
+                  }
                 </div>
-                }
-                </div>
-        </div>
+              </div>
+              </div>
+              </div>
         </div>
 
         <div class="body_card">
           <div class="body_card_wrapper">
             <p class="label">Contact info</p>
+            @if (contactDetail?.email) {
             <a [href]="'mailto:' + contactDetail?.email"><i class="bi bi-envelope-paper"></i>&nbsp;
               {{ contactDetail?.email }}</a>
+            }
+            @if (contactDetail?.primary_contact) {
             <a [href]="'tel:' + contactDetail?.primary_contact"><i class="bi bi-telephone-outbound"></i>&nbsp;
               {{ contactDetail?.primary_contact }}</a>
+            }
+            @if (contactDetail?.alternative_contact) {
             <a [href]="'tel:' + contactDetail?.alternative_contact"><i class="bi bi-telephone-outbound"></i>&nbsp;
               {{ contactDetail?.alternative_contact }}</a>
+            }
           </div>
           <div class="body_card_wrapper">
             <p>

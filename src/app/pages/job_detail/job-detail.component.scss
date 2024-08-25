@@ -4,7 +4,7 @@
   .container {
     a {
       color: $primary-green;
-      font-weight: bold;
+      // font-weight: bold;
       text-decoration: dotted;
       transition: 0.4s all ease-in-out;
       &:hover {
@@ -23,8 +23,8 @@
         padding: 20px;
         border-radius: 20px;
         margin-top: 10px;
-          box-shadow: 0.2px 0.2px 5px 2px rgb(238, 238, 238);
-
+        box-shadow: 0.2px 0.2px 5px 2px rgb(238, 238, 238);
+        // background-image:linear-gradient(to bottom, rgb(255 255 255 / 50%), rgb(243 243 243 / 80%)), radial-gradient(circle farthest-corner at 0% 0%, #ffffff 1%, #005F5F 17%, rgba(0, 0, 0, 0) 17%), linear-gradient(160deg, #ffffff 63%, #005F5F 99%, #ffffff 90%);
 
         .business_info {
           display: flex;
@@ -45,25 +45,6 @@
 
           .business_title {
             display: flex;
-            .titleBtn {
-              button {
-                margin-left: 10px;
-                background-color: $primary-green;
-                color: $primary-white;
-                border: none;
-                padding: 5px 10px;
-                border-radius: 5px;
-                cursor: pointer;
-                transition: 0.3s all ease-in-out;
-                &:hover {
-                  box-shadow: 0.2px 0.2px 5px $primary-yellow;
-                }
-                a {
-                  color: $primary-white;
-                  font-weight: normal;
-                }
-              }
-            }
 
             @media (max-width: 480px) {
               display: block;
@@ -80,20 +61,34 @@
                 text-transform: capitalize;
                 margin: 0;
               }
-              p {
-                font-size: 14px;
-              }
               .company {
                 font-size: 18px;
                 font-weight: bold;
               }
+
+              .description {
+
+                padding: 5px;
+                color: $primary-black;
+                .head {
+                  font-size: 16px;
+                  color: $light-black;
+                }
+                .contact {
+                   font-size: 12px;
+                  i {
+                    font-size: 20px;
+                    color: $primary-green;
+                  }
+                }
+              }
             }
           }
 
-          @media (max-width:780px) {
+          @media (max-width: 780px) {
             align-items: start;
-    flex-direction: column;
-    gap: 20px;
+            flex-direction: column;
+            gap: 20px;
           }
         }
         .body_card {

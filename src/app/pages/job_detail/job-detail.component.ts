@@ -17,22 +17,16 @@ import { ApiService } from '../../shared/service/api.service';
 export class JobDetailComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private apiService: ApiService) { }
-  categorySlider = [
-    { src: '../../../assets/images/force-majeure-00tlC0Clfrs-unsplash.jpg', alt: 'Slide 1' }
-  ]
   logo = ['hello']
   tab = [
     'Overview'
   ]
-
-  slides: any[][] = [];
   type = "job"
   serviceId = ""
   jobDetail: any
   contactDetail: any
   serviceDetail: any
   ngOnInit(): void {
-    // this.slides = this.chunk(this.businessImage, 2);
     let service: any
     this.route.queryParamMap.subscribe(params => {
       const serviceQueryParam = params?.get('service');
@@ -61,18 +55,7 @@ export class JobDetailComponent implements OnInit {
         break
 
     }
-    if (this.type == 'job') {
-
-    }
   }
-
-  // chunk(arr: any[], size: number): any[][] {
-  //   const chunks = [];
-  //   for (let i = 0; i < arr.length; i += size) {
-  //     chunks.push(arr.slice(i, i + size));
-  //   }
-  //   return chunks;
-  // }
   openJob(url: string) {
     if (url) {
       const fullUrl = url.startsWith('http') ? url : 'http://' + url;
