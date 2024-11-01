@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../../shared/service/api.service';
-import { Observable, Subject } from 'rxjs';
-import { debounceTime, map } from 'rxjs/operators';
+import { Observable, of, Subject } from 'rxjs';
+import { debounceTime, map, catchError } from 'rxjs/operators';
 import { AsyncPipe, TitleCasePipe, UpperCasePipe } from '@angular/common';
 import { Router } from '@angular/router';
 import { SharedService } from '../../../shared/service/shared.service';
 import { TimeAgoPipe } from '../../../utils/time-ago.pipe';
 import { JobcardComponent } from '../../../shared/components/jobcard/jobcard.component';
 import { FormsModule } from '@angular/forms';
+import { NgToastService } from 'ng-angular-popup';
 
 @Component({
   selector: 'app-all-jobs',
@@ -17,7 +18,9 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './all-jobs.component.scss',
 })
 export class AllJobsComponent implements OnInit {
-  constructor(private _apiService: ApiService, private route: Router, private shared: SharedService) { }
+  constructor(private _apiService: ApiService, private route: Router, private shared: SharedService,
+    private toaster: NgToastService
+  ) { }
   jobPost$!: Observable<any[]>;
   private searchSubject: Subject<string> = new Subject();
   options = [
@@ -47,11 +50,18 @@ export class AllJobsComponent implements OnInit {
   getAllJobs(data?: {}) {
     this.jobPost$ = this._apiService.getAllJobs(data).pipe(
       map((response: any) => response?.result?.map((res: any) => ({
-        ...res.jobpost.contact_detail,
-        ...res.jobpost.job_detail,
+        ...res,
         logo: '../../../assets/mmj_logo.png'
-      })))
+      }))),
+      // Add error handling
+      catchError((error) => {
+        this.toaster.danger('Server error');
+        return of([]); // Return an empty array on error
+      })
     );
+    if (!data) {
+      this.toaster.success('Newly Uploaded jobs', 'Open Vacancies!'); // Moved outside the pipe
+    }
   }
 
 

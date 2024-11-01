@@ -8,6 +8,7 @@ import { FooterComponent } from '../../shared/components/footer/footer.component
 import { NgOptimizedImage } from '@angular/common';
 import { ApiService } from '../../shared/service/api.service';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { NgToastService } from 'ng-angular-popup';
 // import { ToastrService } from 'ngx-toastr';
 
 @Component({
@@ -27,7 +28,8 @@ export class HomeComponent implements OnInit {
   constructor(
     private route: Router,
     private apiService: ApiService,
-    private spinner: NgxSpinnerService
+    private spinner: NgxSpinnerService,
+    private toaster: NgToastService
   ) { }
 
   ngOnInit(): void {
@@ -39,16 +41,17 @@ export class HomeComponent implements OnInit {
 
   getAllCategory() {
     this.spinner.show();
-    this.apiService.getCategory().subscribe(
-      (res) => {
+    this.apiService.getCategory().subscribe({
+      next: (res) => {
         this.categories = res;
         this.spinner.hide();
       },
-      (err) => {
+      error: (err) => {
         console.log(err);
+        this.toaster.danger('Server error: ' + err)
         this.spinner.hide();
       }
-    );
+    });
   }
 
   banner = [

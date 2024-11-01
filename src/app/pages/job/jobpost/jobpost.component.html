@@ -1,0 +1,305 @@
+<div class="container">
+
+  <div class="main">
+    <div class="head">
+      <h1>Find new talents</h1>
+    </div>
+    <div class="form mb-5">
+      <h1 class="job-head">Job Details</h1>
+      <p class="subtitle m-2 text-danger">
+        *Please note that a payment of 500 is required to post this job listing. This fee helps us maintain the quality
+        of our
+        job board and ensures serious job postings.
+      </p>
+      <form [formGroup]="postjob" (ngSubmit)="onSubmit()">
+        <div class="controls">
+          <div class="form-group ">
+            <div>
+              <input id="email" type="email" formControlName="email" class="form-control input-wrapper"
+                placeholder="Email"
+                [ngClass]="{'is-invalid': postjob.get('email')?.invalid && postjob.get('email')?.touched}" required>
+              @if (postjob.get('email')?.invalid && postjob.get('email')?.touched) {
+              <div class="text-danger">
+                @if (postjob.get('email')?.errors?.['required']) {
+                <small>Email is required.</small>
+                }
+                @if (postjob.get('email')?.errors?.['email']) {
+                <small>Invalid email format.</small>
+                }
+              </div>
+              }
+            </div>
+            <div>
+              <input id="job-title" type="text" formControlName="title" class="form-control input-wrapper"
+                placeholder="Job title"
+                [ngClass]="{'is-invalid': postjob.get('title')?.invalid && postjob.get('title')?.touched}" required>
+              @if (postjob.get('title')?.invalid && postjob.get('title')?.touched) {
+              <div class="text-danger">
+                @if (postjob.get('title')?.errors?.['required']) {
+                <small>Job title is required.</small>
+                }
+              </div>
+              }
+            </div>
+          </div>
+          <div class="form-group ">
+
+            <div>
+              <input id="company_name" type="text" formControlName="company_name" class="form-control input-wrapper"
+                placeholder="Company name"
+                [ngClass]="{'is-invalid': postjob.get('company_name')?.invalid && postjob.get('company_name')?.touched}"
+                required>
+
+              @if (postjob.get('company_name')?.invalid && postjob.get('company_name')?.touched) {
+              <div class="text-danger">
+                @if (postjob.get('company_name')?.errors?.['required']) {
+                <small>Company name is required.</small>
+                }
+              </div>
+              }
+            </div>
+            <input id="apply_url" type="text" formControlName="apply_url" class="form-control input-wrapper"
+              placeholder="Application url">
+          </div>
+
+          <div class="form-group ">
+            <input id="qualification" type="text" formControlName="qualification" class="form-control input-wrapper"
+              placeholder="Qualification">
+            <input id="salary" type="number" formControlName="salary" class="form-control input-wrapper"
+              placeholder="Salary">
+
+            <div>
+              <input id="number_of_opening" type="number" formControlName="number_of_opening"
+                class="form-control input-wrapper" placeholder="Number of openings"
+                [ngClass]="{'is-invalid': postjob.get('number_of_opening')?.invalid && postjob.get('number_of_opening')?.touched}"
+                required>
+
+              @if (postjob.get('number_of_opening')?.invalid && postjob.get('number_of_opening')?.touched) {
+              <div class="text-danger">
+                @if (postjob.get('number_of_opening')?.errors?.['required']) {
+                <small>Number of openings is required.</small>
+                }
+              </div>
+              }
+            </div>
+
+            <div>
+              <input id="employment_type" type="text" formControlName="employment_type"
+                class="form-control input-wrapper" placeholder="Employment type"
+                [ngClass]="{'is-invalid': postjob.get('employment_type')?.invalid && postjob.get('employment_type')?.touched}"
+                required>
+
+              @if (postjob.get('employment_type')?.invalid && postjob.get('employment_type')?.touched) {
+              <div class="text-danger">
+                @if (postjob.get('employment_type')?.errors?.['required']) {
+                <small>Number of openings is required.</small>
+                }
+              </div>
+              }
+            </div>
+
+
+          </div>
+
+          <textarea id="description" rows="3" formControlName="description" class="form-control input-wrapper"
+            placeholder="Description"
+            [ngClass]="{'is-invalid': postjob.get('description')?.invalid && postjob.get('description')?.touched}"
+            required></textarea>
+          @if (postjob.get('description')?.invalid && postjob.get('description')?.touched) {
+          <div class="text-danger">
+            @if (postjob.get('description')?.errors?.['required']) {
+            <small>Description is required.</small>
+            }
+          </div>
+          }
+
+          <textarea id="responsibility" rows="3" formControlName="responsibility" class="form-control input-wrapper"
+            placeholder="Responsibility"
+            [ngClass]="{'is-invalid': postjob.get('responsibility')?.invalid && postjob.get('responsibility')?.touched}"
+            required></textarea>
+          @if (postjob.get('responsibility')?.invalid && postjob.get('responsibility')?.touched) {
+          <div class="text-danger">
+            @if (postjob.get('responsibility')?.errors?.['required']) {
+            <small>Responsibility is required.</small>
+            }
+          </div>
+          }
+
+          <div class="form-group ">
+            <textarea id="note" rows="1" formControlName="notes" class="form-control input-wrapper"
+              placeholder="Additional note"></textarea>
+            <!-- <input id="application_url" type="text" formControlName="application_url" class="form-control input-wrapper"
+              placeholder="Application URL"> -->
+          </div>
+        </div>
+        <h1 class="job-head mt-4 mb-4">Contact Details</h1>
+
+        <div class="form-group ">
+          <div>
+            <input id="mobile" type="number" formControlName="wa_number" class="form-control input-wrapper"
+              maxlength="10"
+              [ngClass]="{'is-invalid': postjob.get('wa_number')?.invalid && postjob.get('wa_number')?.touched}"
+              placeholder="Whatsapp Number">
+            @if(postjob.get('wa_number')?.invalid && postjob.get('wa_number')?.touched){
+            <div class="text-danger">
+              @if (postjob.get('wa_number')?.errors?.['pattern']) {
+              <small>Enter valid number</small>
+              }
+            </div>
+            }
+          </div>
+
+
+          <div>
+            <input id="phone" type="number" formControlName="primary_contact" class="form-control input-wrapper"
+              placeholder="Primary Contact" maxlength="10"
+              [ngClass]="{'is-invalid': postjob.get('primary_contact')?.invalid && postjob.get('primary_contact')?.touched}"
+              required>
+            @if(postjob.get('primary_contact')?.invalid && postjob.get('primary_contact')?.touched){
+            <div class="text-danger">
+              @if (postjob.get('primary_contact')?.errors?.['required']) {
+              <small>Primary contact is required.</small>
+              } @else if (postjob.get('primary_contact')?.errors?.['pattern']) {
+              <small>Enter valid number</small>
+              }
+            </div>
+            }
+          </div>
+
+
+          <div>
+            <input id="alternative_contact" type="number" formControlName="alternative_contact" maxlength="10"
+              [ngClass]="{'is-invalid': postjob.get('alternative_contact')?.invalid && postjob.get('alternative_contact')?.touched}"
+              class="form-control input-wrapper" placeholder="Alternative number">
+            @if(postjob.get('alternative_contact')?.invalid && postjob.get('alternative_contact')?.touched){
+            <div class="text-danger">
+              @if (postjob.get('alternative_contact')?.errors?.['pattern']) {
+              <small>Enter valid number</small>
+              }
+            </div>
+            }
+          </div>
+        </div>
+        <div class="d-flex justify-content-start m-3 text-white gap-3">
+          <p class="label text-white">Primary Mode Of Contact</p>
+          @for (contact of ['whatsapp', 'email', 'phone']; track $index) {
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" [value]="contact"
+              [checked]="postjob.get('contact_type')?.value.includes(contact)" (change)="onContactTypeChange($event)">
+            <label class="form-check-label">
+              {{ contact | titlecase }}
+            </label>
+          </div>
+          }
+        </div>
+
+        <div class="form-group ">
+          <div>
+            <input id="address" type="text" formControlName="address" class="form-control input-wrapper"
+              placeholder="Address"
+              [ngClass]="{'is-invalid': postjob.get('address')?.invalid && postjob.get('address')?.touched}" required>
+
+            @if(postjob.get('address')?.invalid && postjob.get('address')?.touched){
+            <div class="text-danger">
+              @if (postjob.get('address')?.errors?.['required']) {
+              <small>Address is required.</small>
+              }
+            </div>
+            }
+          </div>
+          <div>
+            <input id="city" type="text" formControlName="city" class="form-control input-wrapper" placeholder="City"
+              [ngClass]="{'is-invalid': postjob.get('city')?.invalid && postjob.get('city')?.touched}" required>
+
+            @if(postjob.get('city')?.invalid && postjob.get('city')?.touched){
+            <div class="text-danger">
+              @if(postjob.get('city')?.errors?.['required']){
+              <small>City is required.</small>
+              }
+            </div>
+            }
+          </div>
+          <div>
+            <input id="state" type="text" formControlName="state" class="form-control input-wrapper" placeholder="State"
+              [ngClass]="{'is-invalid': postjob.get('state')?.invalid && postjob.get('state')?.touched}" required>
+            @if(postjob.get('state')?.invalid && postjob.get('state')?.touched){
+            <div class="text-danger">
+              @if(postjob.get('state')?.errors?.['required']){}
+              <small>State is required.</small>
+            </div>
+            }
+          </div>
+          <div>
+            <input id="pincode" type="number" formControlName="pincode" class="form-control input-wrapper"
+              placeholder="Pincode"
+              [ngClass]="{'is-invalid': postjob.get('pincode')?.invalid && postjob.get('pincode')?.touched}" required>
+            @if(postjob.get('pincode')?.invalid && postjob.get('pincode')?.touched){
+            <div class="text-danger">
+              @if(postjob.get('pincode')?.errors?.['required']){
+              <small>Pincode is required.</small>
+              }
+            </div>
+            }
+          </div>
+          <input id="website" type="text" formControlName="web_url" class="form-control input-wrapper"
+            placeholder="Company website">
+        </div>
+
+
+
+        <h1 class="job-head mt-4 mb-4">Attachment</h1>
+
+
+        <div class="form-group">
+          <div class="mb-3">
+            <div class="file-input">
+              <span class="upload-icon">
+                <i class="bi bi-upload"></i> <!-- Bootstrap Icon for Upload -->
+              </span>
+              <span>Upload Company Logo</span>
+              <input type="file" accept="image/*" (change)="onFileSelect($event, 'logo')">
+            </div>
+            <div class="file-name mt-2" id="fileName">
+              @if (!logoFile) {
+              No file selected
+              }
+              @if (logoFile?.name) {
+              Uploaded:- {{ logoFile?.name }}
+              }
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="mb-3">
+            <div class="file-input">
+              <span class="upload-icon">
+                <i class="bi bi-upload"></i> <!-- Bootstrap Icon for Upload -->
+              </span>
+              <span>Upload Payment Screenshot (Required)</span>
+              <input type="file" accept="image/*" (change)="onFileSelect($event, 'payment')">
+            </div>
+            @if (!paymentFile) {
+            <div class="file-name mt-2" id="fileName">No file selected</div>
+            }
+            @if (paymentFile?.name) {
+            <div class="file-name mt-2" id="fileName">Uploaded: {{ paymentFile?.name |json }}</div>
+            }
+
+            @if(postjob.get('payment')?.invalid && postjob.get('payment')?.touched){
+            <div>
+              <small class="text-danger">Payment screenshot is required.</small>
+            </div>
+            }
+          </div>
+
+
+        </div>
+
+        <button class="btn postjobBtn w-100 text-white mt-2" type="submit">Post</button>
+        <!-- <button class="btn postjobBtn w-100 text-white mt-2" type="submit" [disabled]="postjob.invalid">Post</button> -->
+      </form>
+
+    </div>
+  </div>
+</div>

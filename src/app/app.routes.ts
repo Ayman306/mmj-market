@@ -32,4 +32,11 @@ export const routes: Routes = [
         (c) => c.JobDetailComponent
       ),
   },
+  {
+    path: 'job-post',
+    loadComponent: () =>
+      import('./pages/job/jobpost/jobpost.component').then(
+        (c) => c.JobpostComponent
+      ),
+  },
 ];

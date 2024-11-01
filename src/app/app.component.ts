@@ -4,16 +4,18 @@ import { filter } from 'rxjs/operators';
 import { WindowService } from './shared/service/window.service';
 import { NgClass, NgOptimizedImage } from '@angular/common';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { NgToastModule, ToasterPosition } from 'ng-angular-popup';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, NgOptimizedImage, NgxSpinnerModule, NgClass],
+  imports: [RouterOutlet, NgOptimizedImage, NgxSpinnerModule, NgClass, NgToastModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
 export class AppComponent implements OnInit {
   title = 'mmj-market';
+  ToasterPosition = ToasterPosition;
   showText: boolean = false;
   constructor(private route: Router, private windowService: WindowService) {}
   ngOnInit(): void {

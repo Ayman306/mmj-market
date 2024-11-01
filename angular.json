@@ -7,8 +7,7 @@
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
-          "style": "scss",
-          "spec": false
+          "style": "scss"
         },
         "@schematics/angular:directive": {
           "spec": false
@@ -16,16 +15,10 @@
         "@schematics/angular:service": {
           "spec": false
         },
-        "@schematics/angular:class": {
-          "spec": false
-        },
         "@schematics/angular:guard": {
           "spec": false
         },
         "@schematics/angular:interface": {
-          "spec": false
-        },
-        "@schematics/angular:enum": {
           "spec": false
         }
       },

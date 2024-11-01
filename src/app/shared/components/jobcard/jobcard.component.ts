@@ -17,6 +17,8 @@ export class JobcardComponent implements AfterViewInit {
   ngAfterViewInit(): void {
     // this.media = JSON.parse(this.item.jobpost.job_detail.media)
     // console.log(this.media)
+    console.log(this.item);
+
   }
   navigateTo(index: any) {
     console.log(index, 'kk')

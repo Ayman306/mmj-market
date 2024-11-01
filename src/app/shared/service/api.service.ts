@@ -20,4 +20,8 @@ export class ApiService {
     data = { ...body, ...data }
     return this.http.post<any>(`${this.apiUrl}/job`, data);
   }
+
+  postJob(job: any) {
+    return this.http.post<any>(`${this.apiUrl}/job/add`, job);
+  }
 }

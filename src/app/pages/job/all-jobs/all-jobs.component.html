@@ -37,7 +37,7 @@
     @for (item of jobPost$ | async; track $index) {
     <app-jobcard [item]="item"></app-jobcard>
     } @empty {
-    <div class="empty">
+    <div class="empty m-5">
       <div class="empty_img">
         <img src="../../../assets/images/undraw_not_found_re_bh2e.svg" alt="" srcset="" class="w-100 h-100">
       </div>

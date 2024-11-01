@@ -19,6 +19,7 @@ import {
 } from '@angular/platform-browser/animations';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { httpInterceptor } from './utils/http.interceptor';
+import { IMAGE_CONFIG } from '@angular/common';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -33,5 +34,12 @@ export const appConfig: ApplicationConfig = {
     provideToastr(),
     provideAnimations(),
     provideHttpClient(withFetch()),
+    {
+      provide: IMAGE_CONFIG,
+      useValue: {
+        disableImageSizeWarning: true,
+        disableImageLazyLoadWarning: true
+      }
+    },
   ],
 };
